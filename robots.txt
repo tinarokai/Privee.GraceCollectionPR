@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://privee.gracecollection.com/sitemap.xml

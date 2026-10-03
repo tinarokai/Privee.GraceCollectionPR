@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KXJN95H3');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villa Azure Boutique Hotel | 16-Suite Property for Groups &amp; Weddings</title>
+  <meta name="description" content="A 16-suite boutique beachfront hotel in Ocean Park, San Juan. One property, ideal for large groups, wedding events and family reunions. Two pools, in-house chef, full-hotel buyouts. Book direct.">
+  <link rel="canonical" href="https://villaazurehotelpr.com/">
+  <link rel="alternate" hreflang="en" href="https://villaazurehotelpr.com/">
+  <link rel="alternate" hreflang="es" href="https://villaazurehotelpr.com/es/">
+  <link rel="alternate" hreflang="x-default" href="https://villaazurehotelpr.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="geo.region" content="US-PR">
+  <meta name="geo.placename" content="Ocean Park, San Juan, Puerto Rico">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Villa Azure Hotel">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Villa Azure Boutique Hotel | 16-Suite Property for Groups &amp; Weddings">
+  <meta property="og:description" content="A 16-suite boutique beachfront hotel in Ocean Park, San Juan. One property, ideal for large groups, wedding events and family reunions. Two pools, in-house chef, full-hotel buyouts. Book direct.">
+  <meta property="og:url" content="https://villaazurehotelpr.com/">
+  <meta property="og:image" content="https://villaazurehotelpr.com/images/2024/12/Exclusive-Villa-34.webp">
+  <meta property="og:image:alt" content="Villa Azure Hotel oceanfront pool in Ocean Park, San Juan">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Villa Azure Boutique Hotel | 16-Suite Property for Groups &amp; Weddings">
+  <meta name="twitter:description" content="A 16-suite boutique beachfront hotel in Ocean Park, San Juan. One property for large groups, wedding events and family reunions. Two pools, in-house chef, full-hotel buyouts. Book direct.">
+  <meta name="twitter:image" content="https://villaazurehotelpr.com/images/2024/12/Exclusive-Villa-34.webp">
+  <link rel="icon" href="images/2024/09/cropped-favico-villa-1.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&family=Saira+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/lux.css?v=11">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "@id": "https://villaazurehotelpr.com/#hotel",
+    "name": "Villa Azure Hotel",
+    "parentOrganization": { "@type": "Organization", "name": "The Grace Collection" },
+    "description": "A 16-suite beachfront boutique hotel in Ocean Park, San Juan, Puerto Rico. One property sleeping up to 38 guests, with two pools, oceanfront event spaces, direct beach access, an in-house private chef and personalized concierge service. Ideal for large groups, wedding events and full-hotel buyouts.",
+    "url": "https://villaazurehotelpr.com/",
+    "email": "info@villaazurehotelpr.com",
+    "telephone": "+1-954-900-1988",
+    "image": [
+      "https://villaazurehotelpr.com/images/2024/12/Exclusive-Villa-34.webp",
+      "https://villaazurehotelpr.com/images/2024/12/Exclusive-Villa-1.webp",
+      "https://villaazurehotelpr.com/images/2025/02/FOTO-VILLA-AZUR-7.webp"
+    ],
+    "priceRange": "$$$$",
+    "currenciesAccepted": "USD",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5 Calle Guerrero Noble",
+      "addressLocality": "San Juan",
+      "addressRegion": "PR",
+      "postalCode": "00913",
+      "addressCountry": "US"
+    },
+    "areaServed": "Ocean Park, San Juan, Puerto Rico",
+    "numberOfRooms": 16,
+    "petsAllowed": false,
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Direct Beach Access", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Two Pools", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Ocean View", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Oceanfront Event Spaces", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "In-House Private Chef", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Concierge Service", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true }
+    ]
+  }
+  </script>
+  <!-- FAQ Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Where is Villa Azure Hotel located?", "acceptedAnswer": { "@type": "Answer", "text": "Villa Azure Hotel sits at 5 Calle Guerrero Noble in Ocean Park, San Juan, Puerto Rico, steps from Ocean Park Beach and minutes from Condado and Old San Juan." } },
+      { "@type": "Question", "name": "How many guests can the hotel accommodate?", "acceptedAnswer": { "@type": "Answer", "text": "The hotel offers sixteen en-suite suites, many with ocean views, and sleeps up to 38 guests. You can reserve a single suite, a full floor, or book the entire hotel for a group." } },
+      { "@type": "Question", "name": "Is Villa Azure Hotel on the beach?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hotel is beachfront in Ocean Park with direct beach access and two pools, just steps from the sand." } },
+      { "@type": "Question", "name": "Do you offer a private chef and concierge?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Villa Azure Hotel has an in-house private chef who can prepare everything from poolside breakfast to multi-course oceanfront dinners, plus a personalized concierge team for tours, charters, transfers and tailored itineraries." } },
+      { "@type": "Question", "name": "Can I host a wedding or corporate event at the hotel?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. With oceanfront event spaces, sixteen suites and full-hotel buyouts, Villa Azure Hotel is ideal for weddings, corporate retreats and group celebrations in San Juan." } },
+      { "@type": "Question", "name": "How do I book Villa Azure Hotel?", "acceptedAnswer": { "@type": "Answer", "text": "Book directly through our online booking engine or via WhatsApp, with no OTA fees when you book direct." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXJN95H3"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Header -->
+  <header class="lux-header" id="luxHeader">
+    <button class="burger" id="menuOpen" aria-label="Menu"><span></span><span></span><span></span></button>
+    <a href="./" class="lux-logo"><img src="images/2023/04/VILLA-AZURE-WHITE-1024x425.png" alt="Villa Azure Hotel"><span class="tag">Hotel · Ocean Park</span></a>
+    <div class="hdr-right"><a class="lang-toggle" href="/es/">ES</a><a href="https://villaazurehotel.guestybookings.com/en" target="_blank" rel="noopener" class="pill light">Book</a></div>
+  </header>
+
+  <!-- Menu overlay -->
+  <div class="menu" id="menu">
+    <button class="close" id="menuClose">Close</button>
+    <nav>
+      <a href="./">Home</a>
+      <a href="about">The Hotel</a>
+      <a href="rooms">Suites</a>
+      <a href="gallery">Gallery</a>
+      <a href="amenities">Amenities</a>
+      <a href="experiences">Experiences</a>
+      <a href="weddings">Weddings</a>
+      <a href="corporate">Corporate</a>
+      <a href="faq">FAQ</a>
+      <a href="contact">Contact</a>
+    </nav>
+    <div class="foot">
+      <a href="/es/">Español</a>
+      <a href="https://villaazurehotel.guestybookings.com/en" target="_blank" rel="noopener">Reserve</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="main" class="hero">
+    <video class="hero-video" data-mobile-src="https://video.villaazurehotelpr.com/hero-azure-paradiso-mobile.mp4" data-desktop-src="https://video.villaazurehotelpr.com/hero-azure-paradiso-desktop.mp4" autoplay muted defaultmuted loop playsinline webkit-playsinline x5-playsinline preload="metadata" disableRemotePlayback disablePictureInPicture poster="https://video.villaazurehotelpr.com/hero-azure-first-poster.webp"></video>
+    <script>!function(){var v=document.currentScript.previousElementSibling;if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.preload='none';return;}v.src=matchMedia('(min-width:901px)').matches?v.dataset.desktopSrc:v.dataset.mobileSrc;v.load();}();</script>
+    <div class="hero-in">
+      <span class="lbl">Beachfront · Ocean Park, San Juan</span>
+      <h1><span class="hl">Some mornings you wake up.</span><span class="hl">Others, the ocean wakes you.</span></h1>
+      <div class="cue"><a href="#collection" class="link">Discover the Hotel</a></div>
+    </div>
+    <button class="sound-btn" id="soundBtn" type="button" aria-pressed="false" aria-label="Turn hero sound on"><span class="ico" aria-hidden="true">&#9835;</span><span class="txt">Sound On</span></button>
+    <div class="hero-scroll" aria-hidden="true"></div>
+  </section>
+
+
+  <!-- Intro statement -->
+  <section class="intro reveal">
+    <div class="wrap">
+      <span class="lbl">Villa Azure</span>
+      <h2>A beachfront boutique hotel in Ocean Park, San Juan, where the garden meets the sand, an in-house chef sets the table, and the day belongs to the sea.</h2>
+      <p class="sub">Sixteen light-filled suites, moments from the water and minutes from San Juan.</p>
+    </div>
+  </section>
+
+  <!-- The Collection -->
+  <div class="center-head reveal" id="collection" style="padding:60px 0 90px;">
+    <span class="lbl">The Collection</span>
+    <h2>Sixteen Suites, Two Pools, One Ocean Breeze</h2>
+    <div class="rule"></div>
+  </div>
+
+  <section class="feature reveal">
+    <div class="ph"><img src="assets/paradiso/the-pool-garden.webp" alt="Villa Azure oceanfront pool garden"></div>
+    <div class="txt">
+      <span class="lbl">The Oceanfront Pool</span>
+      <h2>Days by a glass-walled pool, open to the Atlantic</h2>
+      <p>An oceanfront garden of loungers and palms, a glass-edged pool, and shaded terraces for long evenings by the water, steps from the sand.</p>
+      <a href="rooms" class="link">Explore the Suites</a>
+    </div>
+  </section>
+
+  <section class="feature alt reveal">
+    <div class="ph"><img src="images/2024/12/Exclusive-Villa-34.webp" alt="Villa Azure private pool and terrace"></div>
+    <div class="txt">
+      <span class="lbl">The Garden Pool</span>
+      <h2>A private pool, a quiet terrace, the sea beyond</h2>
+      <p>A tranquil pool, sun terrace, and ocean-view balconies, wrapped in designer interiors and original art, the second gathering spot of the same hotel.</p>
+      <a href="rooms" class="link">Explore the Suites</a>
+    </div>
+  </section>
+
+  <!-- Beach band -->
+  <section class="band reveal">
+      <video data-src="https://video.villaazurehotelpr.com/band-paradiso.mp4" muted defaultmuted loop playsinline webkit-playsinline preload="none" poster="https://video.villaazurehotelpr.com/band-paradiso-poster.webp"></video>
+      <h2>Where the island comes indoors.</h2>
+    </section>
+
+  <!-- Experiences mosaic -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="lbl">The Days Here</span>
+        <h2>Unhurried, and entirely yours</h2>
+      </div>
+      <div class="mosaic reveal">
+        <figure class="tile big"><img src="images/2024/12/Exclusive-Villa-34.webp" alt="The glass-edged pool and sun terrace at Villa Azure Hotel"><figcaption><div class="l">On Property</div><div class="t">Two Pools</div></figcaption></figure>
+        <figure class="tile small"><img src="assets/paradiso/destination-pool-view.webp" alt="Ocean Park Beach, steps from the hotel garden"><figcaption><div class="l">At the Door</div><div class="t">Ocean Park Beach</div></figcaption></figure>
+        <figure class="tile wide"><img src="assets/paradiso/the-coastal-dining-room.webp" alt="The coastal dining room set for the chef's table"><figcaption><div class="l">By Request</div><div class="t">The Chef's Table</div></figcaption></figure>
+        <figure class="tile wide2"><img src="images/2024/12/Exclusive-Villa-1.webp" alt="Ocean view from a Villa Azure Hotel balcony"><figcaption><div class="l">Across the Hotel</div><div class="t">Ocean Views</div></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video band -->
+  <section class="band reveal">
+    <video data-src="https://video.villaazurehotelpr.com/band-parque-barbosa.mp4" muted defaultmuted loop playsinline webkit-playsinline preload="none" poster="https://video.villaazurehotelpr.com/band-parque-barbosa-poster.webp"></video>
+    <h2>Come find your rhythm by the sea.</h2>
+  </section>
+
+  <!-- Bespoke Services -->
+  <section class="sec sec--sand sec--services">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="lbl">Bespoke Services</span>
+        <h2>Every detail, attended to</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="split reveal">
+        <div class="ph"><img src="assets/paradiso/the-grand-foyer.webp" alt="Personalized concierge at Villa Azure Hotel"></div>
+        <div>
+          <span class="lbl">Personalized Concierge</span>
+          <h2>Your island, curated</h2>
+          <p>From the moment you inquire, our concierge is at your service: private boat charters, car rentals, airport transfers, and guided island tours, arranged seamlessly.</p>
+          <a href="amenities" class="link">The Concierge</a>
+        </div>
+      </div>
+      <div class="split alt reveal">
+        <div class="ph"><img src="assets/dining/chef-plating.webp" alt="The in-house chef plating a course at Villa Azure Hotel"></div>
+        <div>
+          <span class="lbl">In-House Private Chef</span>
+          <h2>Dining, without leaving home</h2>
+          <p>Our in-house chef designs gourmet menus around your tastes, from a relaxed poolside breakfast to an elegant multi-course dinner in the oceanfront dining room. Tell us your cravings.</p>
+          <a href="contact" class="link">Request the Chef</a>
+        </div>
+      </div>
+      <div class="strip reveal">
+        <figure class="tall"><img src="assets/dining/dish-caribbean.webp" alt="Local seafood and black beans, plated for the chef's table" loading="lazy"></figure>
+        <figure class="wide"><img src="assets/dining/dish-catch-of-the-day.webp" alt="Catch of the day plated by the in-house chef" loading="lazy"></figure>
+        <figure class="wide"><img src="assets/dining/dish-shrimp.webp" alt="Caribbean shrimp course from the chef's table menu" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weddings -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="split alt reveal">
+        <div class="ph"><img src="images/2026/05/wedding-floral-arch.jpg" alt="Wedding ceremony arch set up in the oceanfront garden at Villa Azure Hotel"></div>
+        <div>
+          <span class="lbl">Weddings</span>
+          <h2>Your whole-hotel oceanfront wedding</h2>
+          <p>Reserve all of Villa Azure and make the day entirely your own: an oceanfront ceremony in the gardens, a reception on the oceanfront terraces, and your closest guests staying on-site.</p>
+          <ul class="checklist">
+            <li>Ceremony in the private oceanfront gardens</li>
+            <li>Reception on the oceanfront terraces</li>
+            <li>16 suites on-site, up to 38 guests stay over</li>
+            <li>In-house chef &amp; full-hotel buyout</li>
+          </ul>
+          <a href="weddings" class="link">Plan Your Wedding</a>
+        </div>
+      </div>
+      <div class="strip reveal">
+        <figure class="tall"><img src="assets/experiences/wedding-bride-groom-palms.jpg" alt="Bride and groom by the ocean in Ocean Park, San Juan" loading="lazy"></figure>
+        <figure class="wide"><img src="assets/experiences/wedding-carry-bride.jpg" alt="Bride in a long veil at the water's edge" loading="lazy"></figure>
+        <figure class="wide"><img src="images/2026/05/wedding-celebration-group.jpg" alt="Wedding party celebrating in the oceanfront garden at Villa Azure Hotel" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Retreats & Groups -->
+  <section class="sec sec--sand">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="lbl">Retreats &amp; Groups</span>
+        <h2>Three reasons a whole group takes the hotel</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="segments reveal">
+        <article class="segment">
+          <div class="ph"><img src="assets/common/dining-marble-ocean.webp" alt="The long marble table with an ocean view, set for a working session" loading="lazy"></div>
+          <span class="lbl">Corporate</span>
+          <h3>Offsites with the ocean in the room</h3>
+          <p>Take the whole hotel. Sixteen suites, oceanfront lawns and terraces for sessions, a private chef for every meal, and San Juan ten minutes away.</p>
+          <a href="corporate" class="link">Corporate Retreats</a>
+        </article>
+        <article class="segment">
+          <div class="ph"><img src="assets/experiences/spa-stones.jpg" alt="In-suite spa treatment at Villa Azure Hotel" loading="lazy"></div>
+          <span class="lbl">Spa &amp; Wellness</span>
+          <h3>The spa comes to your suite</h3>
+          <p>Massage therapists in your room, yoga on the garden lawn at sunrise, and a chef who will build the week's menu around how your group wants to feel.</p>
+          <a href="spa" class="link">Spa &amp; Wellness</a>
+        </article>
+        <article class="segment">
+          <div class="ph"><img src="assets/experiences/kitesurf-caribbean-carve.jpg" alt="Kitesurfing off Ocean Park Beach in San Juan" loading="lazy"></div>
+          <span class="lbl">Kitesurfing</span>
+          <h3>San Juan's kite beach, at the gate</h3>
+          <p>Ocean Park is where San Juan kites, and the launch is steps from the garden. Rig up in the morning, come back for lunch, go again on the afternoon trades.</p>
+          <a href="kitesurfing" class="link">Kitesurfing</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Art / Craft -->
+  <section class="craft">
+    <div class="feature reveal">
+      <div class="ph"><img src="assets/paradiso-rooms/room-16.jpg" alt="Suite with original artwork at Villa Azure Hotel"></div>
+      <div class="txt">
+        <span class="lbl">Art &amp; Design</span>
+        <h2>A hotel with a hand behind it</h2>
+        <p>Interiors by designer Steve Carril, hung with bold original works by Puerto Rican artist Federick Valentín. Colour, craft, and character in every room.</p>
+        <a href="about" class="link">The Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec sec--sand">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="lbl">Good to Know</span>
+        <h2>Frequently asked</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item"><summary>Where is Villa Azure Hotel located?</summary><p>At 5 Calle Guerrero Noble in Ocean Park, San Juan, steps from Ocean Park Beach and minutes from Condado and Old San Juan.</p></details>
+        <details class="faq-item"><summary>How many guests can the hotel accommodate?</summary><p>Sixteen en-suite suites, many with ocean views, sleeping up to 38 guests. Reserve a suite, a full floor, or the entire hotel for your group.</p></details>
+        <details class="faq-item"><summary>Is Villa Azure Hotel on the beach?</summary><p>Yes, the hotel is beachfront in Ocean Park with direct beach access and two pools, just steps from the sand.</p></details>
+        <details class="faq-item"><summary>Do you offer a private chef and concierge?</summary><p>Yes. Our in-house private chef prepares everything from poolside breakfast to oceanfront dinners, and our concierge arranges tours, charters, transfers and tailored itineraries.</p></details>
+        <details class="faq-item"><summary>Can I host a wedding or corporate event here?</summary><p>Absolutely. With oceanfront event spaces, sixteen suites and full-hotel buyouts, Villa Azure is ideal for weddings, corporate retreats and group celebrations.</p></details>
+        <details class="faq-item"><summary>How do I book?</summary><p>Book directly through our online booking engine or via WhatsApp, with no OTA fees when you book direct.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="closing reveal">
+    <div class="wrap">
+      <img class="mark" src="images/2023/04/VILLA-AZURE-WHITE-370x154.png" alt="Villa Azure" style="filter:brightness(0) saturate(100%) invert(48%) sepia(14%) saturate(760%) hue-rotate(342deg);">
+      <span class="lbl">Your Stay</span>
+      <h2>The sea is already waiting.</h2>
+      <a href="https://villaazurehotel.guestybookings.com/en" target="_blank" rel="noopener" class="pill">Reserve Your Stay</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="lux-footer">
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">
+          <img src="images/2023/04/VILLA-AZURE-WHITE-370x154.png" alt="Villa Azure Hotel">
+          <p>A beachfront boutique hotel in Ocean Park, San Juan. Sixteen suites where timeless calm meets the sea.</p>
+          <p class="ci" style="margin-top:16px;opacity:.85;">Part of the Grace Collection<br></p>
+        </div>
+        <div>
+          <h3 class="ft-h">Explore</h3>
+          <ul>
+            <li><a href="about">The Hotel</a></li>
+            <li><a href="rooms">Suites</a></li>
+            <li><a href="gallery">Gallery</a></li>
+            <li><a href="amenities">Amenities</a></li>
+            <li><a href="experiences">Experiences</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ft-h">Plan Your Stay</h3>
+          <ul>
+            <li><a href="weddings">Weddings</a></li>
+            <li><a href="corporate">Corporate</a></li>
+            <li><a href="faq">FAQ</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li><a href="/es/">Español</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ft-h">Contact</h3>
+          <p class="ci">5 Calle Guerrero Noble<br>San Juan, 00913, PR</p>
+          <p class="ci"><a href="tel:+19549001988">+1 (954) 900-1988</a></p>
+          <p class="ci"><a href="/cdn-cgi/l/email-protection#2841464e47685e4144444949525d5a4d40475c4d44585a064b4745"><span class="__cf_email__" data-cfemail="553c3b333a15233c393934342f2027303d3a21303925277b363a38">[email&#160;protected]</span></a></p>
+        </div>
+      </div>
+      <div class="bottom">
+        <span>&copy; 2026 Villa Azure Hotel</span>
+        <span>Ocean Park · San Juan · Puerto Rico</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/19549001988" class="wa" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // menu
+    const menu=document.getElementById('menu');
+    document.getElementById('menuOpen').onclick=()=>menu.classList.add('open');
+    document.getElementById('menuClose').onclick=()=>menu.classList.remove('open');
+    menu.onclick=e=>{if(e.target===menu)menu.classList.remove('open')};
+    menu.querySelectorAll('nav a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
+    // header solid on scroll
+    const hd=document.getElementById('luxHeader');
+    addEventListener('scroll',()=>{hd.classList.toggle('solid',scrollY>window.innerHeight-120);});
+    // reveal
+    const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:0,rootMargin:'0px 0px -60px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    // Band videos: hold off the download until the section is near the viewport.
+    // (autoplay overrides preload="none", so the src itself has to be withheld.)
+    (function(){
+      const lazyVids = document.querySelectorAll('video[data-src]');
+      if (!lazyVids.length) return;
+      const vio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const v = e.target;
+          vio.unobserve(v);
+          v.src = v.dataset.src;
+          v.setAttribute('autoplay','');
+          v.autoplay = true;
+          v.load();
+          const play = () => v.play().catch(() => {});
+          v.addEventListener('canplay', play, { once: true });
+          play();
+        });
+      }, { rootMargin: '600px 0px' });
+      lazyVids.forEach((v) => vio.observe(v));
+    })();
+    // mobile video autoplay
+    function playVideos(){
+      document.querySelectorAll('video').forEach((v)=>{
+        if(v.classList.contains('hero-video')&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+        if(v.dataset.src&&!v.getAttribute('src'))return; // not activated yet
+        const wantsSound = v.dataset.userAudio==='on';
+        if(!wantsSound){ v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); }
+        v.playsInline=true; v.autoplay=true;
+        v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); v.setAttribute('autoplay','');
+        if(v.classList.contains('hero-video')&&matchMedia('(max-width:900px)').matches&&v.currentSrc.indexOf('hero-azure-paradiso-mobile.mp4')===-1){v.src=v.dataset.mobileSrc;v.load();}
+        const play=()=>v.play().catch(()=>{});
+        if(v.readyState<2){v.addEventListener('loadedmetadata',play,{once:true});v.addEventListener('canplay',play,{once:true});}
+        play(); setTimeout(play,400); setTimeout(play,1200);
+      });
+    }
+    const SOUND_ON_LABEL='Sound On', SOUND_OFF_LABEL='Sound Off';
+
+    // Hero sound. The video carries the licensed music bed, but browsers only
+    // allow autoplay while muted, so it starts silent and this unmutes it on a
+    // real click. Volume is ramped so it fades up rather than slamming on.
+    (function(){
+      const btn = document.getElementById('soundBtn');
+      const hero = document.querySelector('.hero-video');
+      if(!btn || !hero) return;
+      btn.setAttribute('data-ready','');
+      let on = false, fade;
+      const ramp = (to)=>{ clearInterval(fade); fade = setInterval(()=>{
+        const d = to - hero.volume;
+        if(Math.abs(d) < .04){ hero.volume = to; clearInterval(fade); if(to===0) hero.muted = true; return; }
+        hero.volume = Math.max(0, Math.min(1, hero.volume + d*0.14));
+      }, 40); };
+      btn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        on = !on;
+        hero.dataset.userAudio = on ? 'on' : 'off';
+        btn.classList.toggle('is-on', on);
+        btn.setAttribute('aria-pressed', String(on));
+        btn.setAttribute('aria-label', on ? 'Turn hero sound off' : 'Turn hero sound on');
+        btn.querySelector('.txt').textContent = on ? SOUND_OFF_LABEL : SOUND_ON_LABEL;
+        if(on){ hero.volume = 0; hero.muted = false; hero.play().catch(()=>{}); ramp(.55); }
+        else { ramp(0); }
+      });
+      addEventListener('pagehide', ()=>{ hero.muted = true; });
+    })();
+
+    playVideos(); addEventListener('load',playVideos); ['touchstart','pointerdown','scroll','click'].forEach(e=>addEventListener(e,playVideos,{once:true,passive:true}));
+  </script>
+  <script src="js/concierge.js?v=7" defer></script>
+  <script src="js/reviews.js?v=4" defer></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"1ff72f1996ea42b98a3cf73dd4b854f8","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
