@@ -1,7 +1,7 @@
 
 (function(){
   /* Número de WhatsApp de la división de eventos. */
-  var WHATSAPP = "19549001988";
+  var WHATSAPP = "15612892565";
 
   var T={
    en:{
