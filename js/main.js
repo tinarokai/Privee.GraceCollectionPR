@@ -1,7 +1,7 @@
 
 (function(){
   /* Número de WhatsApp de la división de eventos. */
-  var WHATSAPP = "15612892565";
+  var WHATSAPP = "13057485748";
 
   var T={
    en:{
@@ -86,7 +86,7 @@
     "wa.pre":"Prefer to write?","wa.link":"WhatsApp the events team",
     "loc.eye":"The Address","loc.p2":"Between Condado and Isla Verde, fifteen minutes from the airport.","loc.p":"A residential stretch of sand between Condado and Isla Verde — palm-lined, unhurried, and fifteen minutes from the airport. Old San Juan sits twenty minutes west.",
     "loc.1":"Luis Muñoz Marín International (SJU)","loc.2":"Old San Juan","loc.3":"Condado Lagoon","loc.5":"Ocean Park Beach","loc.5b":"Steps away",
-    "ft.est":"The Estates","ft.stay":"Stay with us","ft.occ":"Occasions","ft.contact":"Contact","ft.legal":"Privacy · Terms · Accessibility","ft.email":"events@gracecollectionpr.com","ft.phone":"+1 (954) 900-1988","ft.whatsapp":"WhatsApp Events Concierge",
+    "ft.est":"The Estates","ft.stay":"Stay with us","ft.occ":"Occasions","ft.contact":"Contact","ft.legal":"Privacy · Terms · Accessibility","ft.email":"events@gracecollectionpr.com","ft.phone":"+1 (305) 748-5748","ft.whatsapp":"WhatsApp Events Concierge",
     "locale":"en-US","dw":["M","T","W","T","F","S","S"]
    },
    es:{
@@ -171,7 +171,7 @@
     "wa.pre":"¿Prefieres escribir?","wa.link":"Escríbele al equipo por WhatsApp",
     "loc.eye":"La dirección","loc.p":"Un tramo residencial de arena entre Condado e Isla Verde — bordeado de palmas, sin prisa, a quince minutos del aeropuerto. El Viejo San Juan queda veinte minutos al oeste.",
     "loc.1":"Aeropuerto Internacional Luis Muñoz Marín (SJU)","loc.2":"Viejo San Juan","loc.3":"Laguna del Condado","loc.5":"Playa de Ocean Park","loc.5b":"A pasos",
-    "ft.est":"Las villas","ft.stay":"Hospédate con nosotros","ft.occ":"Ocasiones","ft.contact":"Contacto","ft.legal":"Privacidad · Términos · Accesibilidad","ft.email":"events@gracecollectionpr.com","ft.phone":"+1 (954) 900-1988","ft.whatsapp":"WhatsApp Concierge de Eventos",
+    "ft.est":"Las villas","ft.stay":"Hospédate con nosotros","ft.occ":"Ocasiones","ft.contact":"Contacto","ft.legal":"Privacidad · Términos · Accesibilidad","ft.email":"events@gracecollectionpr.com","ft.phone":"+1 (305) 748-5748","ft.whatsapp":"WhatsApp Concierge de Eventos",
     "locale":"es-PR","dw":["L","M","M","J","V","S","D"]
    }
   };
