@@ -57,7 +57,7 @@ header .right a.cta:hover{background:var(--bronze)}
 
 /* rotating sun emblem */
 .sunspin{position:absolute;bottom:64px;right:5vw;width:74px;opacity:.85;z-index:1;pointer-events:none}
-@media(max-width:760px){.sunspin{width:50px;bottom:40px;right:6vw}}
+@media(max-width:760px){.sunspin{width:44px;bottom:6px;right:6vw}}
 
 /* hero — kinetic type, staggered entrance */
 .hero{min-height:min(100svh,860px);display:flex;flex-direction:column;justify-content:center;padding:130px 5vw 60px;position:relative}
@@ -80,11 +80,8 @@ header .right a.cta:hover{background:var(--bronze)}
 .hero .foot p{max-width:420px;color:var(--muted);font-size:16px}
 .hero .foot p b{color:var(--ink)}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
-.scroll-cue{position:absolute;bottom:26px;left:50%;width:1px;height:54px;background:rgba(11,21,48,.25);overflow:hidden}
-.scroll-cue::after{content:"";position:absolute;inset:0;background:var(--bronze);transform:translateY(-100%);animation:cue 2.2s var(--ease) infinite}
-@keyframes cue{to{transform:translateY(100%)}}
 @media(max-width:760px){
-  .hero{padding:110px 6vw 80px}
+  .hero{min-height:0;padding:110px 6vw 56px}
   .hero .meta span:nth-child(2){display:none}
   .hero .ctas{width:100%}
   .hero .ctas .btn{flex:1;text-align:center;padding:16px 10px}
@@ -103,7 +100,7 @@ header .right a.cta:hover{background:var(--bronze)}
 .vwrap .vcount{position:absolute;right:30px;bottom:26px;color:rgba(255,255,255,.75);font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;z-index:2}
 @media(max-width:760px){
   .cinema{height:135vh}
-  .vwrap{width:92vw;height:86svh;border-radius:16px}
+  .vwrap{width:92vw;height:90svh;border-radius:16px}
   .vwrap .vlabel{left:20px;bottom:18px}
   .vwrap .vcount{display:none}
 }
@@ -250,7 +247,6 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
       <a class="btn btn-line" href="https://wa.me/15612892565">WhatsApp</a>
     </div>
   </div>
-  <div class="scroll-cue"></div>
 </section>
 
 <section class="cinema" id="film">
@@ -447,7 +443,7 @@ if(!reduced){
   const vio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)vid.play().catch(()=>{});else vid.pause()}),{threshold:.1});
   vio.observe(cin);
 }
-const vw0=isMobile?92:90,vh0=isMobile?86:84,vr0=isMobile?16:22;
+const vw0=isMobile?92:90,vh0=isMobile?90:84,vr0=isMobile?16:22;
 
 /* scroll: header, progress, word fill, parallax */
 const paras=[...document.querySelectorAll('[data-para]')];
