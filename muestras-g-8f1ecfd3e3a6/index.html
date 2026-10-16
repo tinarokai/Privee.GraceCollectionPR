@@ -181,7 +181,14 @@ header .right a.cta:hover{background:var(--bronze)}
 .rail figure:hover img{transform:scale(1.04)}
 .rail figcaption{display:flex;justify-content:space-between;margin-top:10px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
 .rail figure:nth-child(even){transform:translateY(34px)}
-@media(max-width:760px){.rail figure:nth-child(even){transform:translateY(20px)}}
+@media(max-width:760px){
+  .railwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x proximity;padding-bottom:28px}
+  .railwrap::-webkit-scrollbar{display:none}
+  .rail{animation:none}
+  .rail figure{scroll-snap-align:center}
+  .rail figure.dup{display:none}
+  .rail figure:nth-child(even){transform:translateY(20px)}
+}
 
 /* closing */
 .closing{padding:min(11vh,104px) 5vw;text-align:center;position:relative}
@@ -373,12 +380,12 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
   </div>
   <div class="railwrap">
   <div class="rail">
-    <figure><img src="img/104A6569.jpg" alt="Cocktail hour"><figcaption><span>Cocktail hour</span><span>Ocean Park</span></figcaption></figure>
-    <figure><img src="img/104A7671.jpg" alt="Canapés"><figcaption><span>Private gastronomy</span><span>Ocean Park</span></figcaption></figure>
-    <figure><img src="img/104A7959.jpg" alt="Group celebration"><figcaption><span>The guest list</span><span>Ocean Park</span></figcaption></figure>
-    <figure><img src="img/DSC08145.jpg" alt="Suite interior"><figcaption><span>Oceanside suite</span><span>Villa Azure</span></figcaption></figure>
-    <figure><img src="img/104A8077.jpg" alt="Night event"><figcaption><span>After dark</span><span>Ocean Park</span></figcaption></figure>
-    <figure><img src="img/IMG_3193.jpg" alt="Pool"><figcaption><span>The pool</span><span>Villa Azure</span></figcaption></figure>
+    <figure class="dup"><img src="img/104A6569.jpg" alt="Cocktail hour"><figcaption><span>Cocktail hour</span><span>Ocean Park</span></figcaption></figure>
+    <figure class="dup"><img src="img/104A7671.jpg" alt="Canapés"><figcaption><span>Private gastronomy</span><span>Ocean Park</span></figcaption></figure>
+    <figure class="dup"><img src="img/104A7959.jpg" alt="Group celebration"><figcaption><span>The guest list</span><span>Ocean Park</span></figcaption></figure>
+    <figure class="dup"><img src="img/DSC08145.jpg" alt="Suite interior"><figcaption><span>Oceanside suite</span><span>Villa Azure</span></figcaption></figure>
+    <figure class="dup"><img src="img/104A8077.jpg" alt="Night event"><figcaption><span>After dark</span><span>Ocean Park</span></figcaption></figure>
+    <figure class="dup"><img src="img/IMG_3193.jpg" alt="Pool"><figcaption><span>The pool</span><span>Villa Azure</span></figcaption></figure>
     <figure><img src="img/104A6569.jpg" alt="Cocktail hour"><figcaption><span>Cocktail hour</span><span>Ocean Park</span></figcaption></figure>
     <figure><img src="img/104A7671.jpg" alt="Canapés"><figcaption><span>Private gastronomy</span><span>Ocean Park</span></figcaption></figure>
     <figure><img src="img/104A7959.jpg" alt="Group celebration"><figcaption><span>The guest list</span><span>Ocean Park</span></figcaption></figure>
