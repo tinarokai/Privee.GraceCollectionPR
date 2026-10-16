@@ -182,11 +182,8 @@ header .right a.cta:hover{background:var(--bronze)}
 .rail figcaption{display:flex;justify-content:space-between;margin-top:10px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
 .rail figure:nth-child(even){transform:translateY(34px)}
 @media(max-width:760px){
-  .railwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x proximity;padding-bottom:28px}
+  .railwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:28px}
   .railwrap::-webkit-scrollbar{display:none}
-  .rail{animation:none}
-  .rail figure{scroll-snap-align:center}
-  .rail figure.dup{display:none}
   .rail figure:nth-child(even){transform:translateY(20px)}
 }
 
@@ -214,6 +211,9 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
 
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
+  .rail{animation:drift 50s linear infinite!important}
+  .marq .track{animation:marq 30s linear infinite!important}
+  .marq.rev .track{animation:marqrev 36s linear infinite!important}
   .hero .meta,.hero h1 .row,.hero .foot{opacity:1;transform:none}
   .reveal,.tx .tags span{opacity:1;transform:none}
   .ph .frame{clip-path:none}
@@ -445,16 +445,22 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 /* cinema video */
 const vid=document.getElementById('herovid'),vwrap=document.getElementById('vwrap'),cin=document.querySelector('.cinema');
 const isMobile=matchMedia('(max-width:760px)').matches;
-if(!reduced){
-  vid.muted=true;vid.defaultMuted=true;vid.autoplay=true;
-  vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-azure-paradiso-mobile.mp4':'https://video.villaazurehotelpr.com/hero-azure-paradiso-desktop.mp4';
+vid.muted=true;vid.defaultMuted=true;vid.autoplay=true;
+vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-azure-paradiso-mobile.mp4':'https://video.villaazurehotelpr.com/hero-azure-paradiso-desktop.mp4';
+{
   let inView=false;
   const tryPlay=()=>{if(inView&&vid.paused)vid.play().catch(()=>{})};
   const vio=new IntersectionObserver(es=>es.forEach(e=>{inView=e.isIntersecting;if(inView)tryPlay();else vid.pause()}),{threshold:.1});
   vio.observe(cin);
   vid.addEventListener('loadeddata',tryPlay);
-  /* iOS/Low Power: autoplay can be blocked until a user gesture */
+  /* iOS/Low Power/Reduce Motion: autoplay can be blocked until a user gesture */
   ['touchstart','scroll','click'].forEach(ev=>addEventListener(ev,tryPlay,{passive:true}));
+}
+/* mobile gallery: auto-drift + swipe (pause drift while touching) */
+{
+  const rw=document.querySelector('.railwrap'),rl=document.querySelector('.rail');let rt;
+  rw.addEventListener('touchstart',()=>{clearTimeout(rt);rl.style.animationPlayState='paused'},{passive:true});
+  rw.addEventListener('touchend',()=>{clearTimeout(rt);rt=setTimeout(()=>{rl.style.animationPlayState=''},3500)},{passive:true});
 }
 const vw0=isMobile?92:90,vh0=isMobile?90:84,vr0=isMobile?16:22;
 
