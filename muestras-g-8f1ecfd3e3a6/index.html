@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
 <title>Privée Events — Take over the whole hotel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0B1530;--bronze:#B8892E;--champ:#D4B678;--paper:#F9F7F3;--paper2:#F2ECE0;--muted:#5A6178;--ease:cubic-bezier(.2,.8,.2,1)}
+:root{--ink:#0B1530;--navy:#1B2550;--bronze:#B8892E;--champ:#D4B678;--paper:#F9F7F3;--paper2:#EEF0F6;--muted:#5A6178;--ease:cubic-bezier(.2,.8,.2,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Nunito Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:16.5px;overflow-x:hidden}
@@ -15,119 +14,212 @@ img{display:block;max-width:100%}
 a{color:inherit}
 ::selection{background:var(--champ);color:var(--ink)}
 .caps{font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.34em;font-size:10.5px;font-weight:600}
-.btn{display:inline-block;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.3em;font-size:11px;font-weight:600;text-decoration:none;padding:18px 36px;transition:all .35s var(--ease)}
+.btn{display:inline-block;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.3em;font-size:11px;font-weight:600;text-decoration:none;padding:18px 36px;transition:transform .35s var(--ease),background .35s,color .35s,border-color .35s;will-change:transform}
+.btn:hover{transform:translateY(-3px)}
 .btn-gold{background:var(--ink);color:#fff}
 .btn-gold:hover{background:var(--bronze)}
 .btn-line{border:1px solid rgba(11,21,48,.35);color:var(--ink)}
 .btn-line:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--ink)}
 
 /* grain */
 body::before{content:"";position:fixed;inset:0;z-index:99;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
 
+/* scroll progress */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--bronze));z-index:60}
+
 /* header */
-header{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px 4vw;mix-blend-mode:normal;transition:background .4s,box-shadow .4s}
-header.solid{background:rgba(249,247,243,.95);box-shadow:0 1px 0 rgba(11,21,48,.08)}
+header{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px 4vw;transition:background .4s,box-shadow .4s}
+header.solid{background:rgba(249,247,243,.95);box-shadow:0 1px 0 rgba(11,21,48,.08);backdrop-filter:blur(6px)}
 header .logo img{height:34px}
 header .right{display:flex;align-items:center;gap:28px}
 header .right a{text-decoration:none;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:600}
-header .right a.cta{background:var(--ink);color:#fff;padding:13px 24px}
+header .right a.cta{background:var(--ink);color:#fff;padding:13px 24px;transition:background .3s}
 header .right a.cta:hover{background:var(--bronze)}
-@media(max-width:760px){header .right a:not(.cta){display:none}}
+@media(max-width:1000px){header .right a:not(.cta){display:none}}
+@media(max-width:760px){
+  header{padding:14px 5vw}
+  header .logo img{height:28px}
+  header .right{gap:0}
+  header .right a:not(.cta){display:none}
+  header .right a.cta{padding:11px 18px;font-size:9px;letter-spacing:.24em}
+}
 
-/* hero — kinetic type with inline images */
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:140px 5vw 60px;position:relative}
-.hero .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:5vh;color:var(--muted)}
-.hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(42px,8vw,118px);line-height:1.02;letter-spacing:-.01em}
-.hero h1 .row{display:flex;align-items:center;gap:.25em;flex-wrap:wrap}
+/* palms framing the hero — signature of the live site */
+.palms{position:absolute;top:0;width:clamp(200px,21vw,320px);pointer-events:none;z-index:0;mix-blend-mode:multiply;opacity:.7;-webkit-mask-image:linear-gradient(to bottom,black 38%,transparent 74%);mask-image:linear-gradient(to bottom,black 38%,transparent 74%)}
+.palms.l{left:0}
+.palms.r{right:0}
+.palms img{width:100%;height:auto;transform-origin:top center;animation:sway 9s ease-in-out infinite alternate}
+.palms.r img{animation-delay:-4.5s}
+@keyframes sway{from{transform:rotate(-1.2deg)}to{transform:rotate(1.4deg)}}
+@media(max-width:760px){.palms{width:38vw;opacity:.5}}
+
+/* rotating sun emblem */
+.sunspin{position:absolute;bottom:64px;right:5vw;width:74px;opacity:.85;z-index:1;pointer-events:none}
+@media(max-width:760px){.sunspin{width:50px;bottom:40px;right:6vw}}
+
+/* hero — kinetic type, staggered entrance */
+.hero{min-height:min(100svh,860px);display:flex;flex-direction:column;justify-content:center;padding:130px 5vw 60px;position:relative}
+.hero>:not(.palms):not(.sunspin){position:relative;z-index:1}
+.hero .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:min(5vh,40px);color:var(--muted);opacity:0;animation:fadeUp 1s var(--ease) .1s forwards}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,8vw,118px);line-height:1.04;letter-spacing:-.01em}
+.hero h1 .row{display:flex;align-items:center;gap:.25em;flex-wrap:wrap;opacity:0;transform:translateY(40px);animation:fadeUp 1s var(--ease) forwards}
+.hero h1 .row:nth-child(1){animation-delay:.25s}
+.hero h1 .row:nth-child(2){animation-delay:.4s}
+.hero h1 .row:nth-child(3){animation-delay:.55s}
+.hero h1 .row:nth-child(4){animation-delay:.7s}
 .hero h1 em{font-style:italic;color:var(--bronze)}
 .hero h1 .out{-webkit-text-stroke:1.5px var(--ink);color:transparent}
 .hero .chip{display:inline-block;height:.82em;aspect-ratio:16/9;overflow:hidden;border-radius:100px;transition:aspect-ratio .7s var(--ease)}
-.hero .chip img{width:100%;height:100%;object-fit:cover}
+.hero .chip img{width:100%;height:100%;object-fit:cover;animation:kenburns 14s ease-in-out infinite alternate}
 .hero .chip:hover{aspect-ratio:21/9}
-.hero .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:6vh;flex-wrap:wrap}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.18)}}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.hero .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:min(6vh,48px);flex-wrap:wrap;opacity:0;animation:fadeUp 1s var(--ease) .9s forwards}
 .hero .foot p{max-width:420px;color:var(--muted);font-size:16px}
 .hero .foot p b{color:var(--ink)}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .scroll-cue{position:absolute;bottom:26px;left:50%;width:1px;height:54px;background:rgba(11,21,48,.25);overflow:hidden}
 .scroll-cue::after{content:"";position:absolute;inset:0;background:var(--bronze);transform:translateY(-100%);animation:cue 2.2s var(--ease) infinite}
 @keyframes cue{to{transform:translateY(100%)}}
+@media(max-width:760px){
+  .hero{padding:110px 6vw 80px}
+  .hero .meta span:nth-child(2){display:none}
+  .hero .ctas{width:100%}
+  .hero .ctas .btn{flex:1;text-align:center;padding:16px 10px}
+}
+
+/* expanding cinema — hero video that grows to full bleed on scroll */
+.cinema{height:165vh;position:relative}
+.cinema .stick{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:hidden}
+.vwrap{position:relative;width:90vw;height:84svh;border-radius:22px;overflow:hidden;box-shadow:0 40px 90px rgba(11,21,48,.25);will-change:width,height,border-radius}
+.vwrap video,.vwrap img.vposter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vwrap .vscrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,21,48,.45),transparent 45%)}
+.vwrap .vlabel{position:absolute;left:30px;bottom:26px;color:#fff;z-index:2}
+.vwrap .vlabel .caps{color:var(--champ);display:block;margin-bottom:8px}
+.vwrap .vlabel h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,3vw,42px);line-height:1.1}
+.vwrap .vlabel h3 em{font-style:italic;color:var(--champ)}
+.vwrap .vcount{position:absolute;right:30px;bottom:26px;color:rgba(255,255,255,.75);font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;z-index:2}
+@media(max-width:760px){
+  .cinema{height:135vh}
+  .vwrap{width:92vw;height:86svh;border-radius:16px}
+  .vwrap .vlabel{left:20px;bottom:18px}
+  .vwrap .vcount{display:none}
+}
 
 /* marquee */
 .marq{border-top:1px solid rgba(11,21,48,.14);border-bottom:1px solid rgba(11,21,48,.14);overflow:hidden;padding:20px 0;background:var(--paper)}
-.marq .track{display:flex;gap:56px;width:max-content;animation:marq 34s linear infinite}
+.marq .track{display:flex;gap:56px;width:max-content;animation:marq 30s linear infinite}
 .marq span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;white-space:nowrap;color:var(--ink)}
 .marq span i{font-style:normal;color:var(--bronze);margin-right:56px}
 @keyframes marq{to{transform:translateX(-50%)}}
+.marq.rev{border-top:0;background:var(--navy)}
+.marq.rev .track{animation:marqrev 36s linear infinite}
+.marq.rev span{color:rgba(249,247,243,.85)}
+.marq.rev span i{color:var(--champ)}
+@keyframes marqrev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 
 /* chapters */
-.chapter{padding:14vh 5vw;position:relative}
-.chapter .idx{position:absolute;top:8vh;right:4vw;font-family:'Cormorant Garamond',serif;font-size:clamp(100px,16vw,240px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,137,46,.4);user-select:none;pointer-events:none}
+.chapter{padding:min(8vh,76px) 5vw;position:relative;overflow:hidden}
+.chapter .idx{position:absolute;top:8vh;right:4vw;font-family:'Cormorant Garamond',serif;font-size:clamp(100px,16vw,240px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,137,46,.4);user-select:none;pointer-events:none;will-change:transform}
 .chapter .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;align-items:center;max-width:1340px;margin:0 auto}
-@media(max-width:900px){.chapter .grid{grid-template-columns:1fr}}
+@media(max-width:900px){.chapter .grid{grid-template-columns:1fr;gap:44px}}
 .chapter.flip .grid > .ph{order:2}
 @media(max-width:900px){.chapter.flip .grid > .ph{order:0}}
 .ph{position:relative}
-.ph .main{width:100%;aspect-ratio:4/4.4;object-fit:cover;clip-path:inset(12% 12% 12% 12%);transition:clip-path 1.2s var(--ease)}
-.ph.in .main{clip-path:inset(0 0 0 0)}
-.ph .float{position:absolute;width:38%;aspect-ratio:1/1.25;object-fit:cover;right:-6%;bottom:-10%;box-shadow:0 30px 60px rgba(11,21,48,.28);transform:rotate(3deg)}
+.ph .frame{overflow:hidden;clip-path:inset(12% 12% 12% 12%);transition:clip-path 1.2s var(--ease)}
+.ph.in .frame{clip-path:inset(0 0 0 0)}
+.ph .main{width:100%;aspect-ratio:4/4.4;object-fit:cover;will-change:transform;transform:scale(1.12)}
+.ph .float{position:absolute;width:38%;aspect-ratio:1/1.25;object-fit:cover;right:-6%;bottom:-7%;box-shadow:0 30px 60px rgba(11,21,48,.28);transform:rotate(3deg);will-change:transform}
 .chapter.flip .ph .float{right:auto;left:-6%;transform:rotate(-3deg)}
-.ph .lbl{position:absolute;top:14px;left:14px;background:var(--paper);padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--bronze)}
+.ph .lbl{position:absolute;top:14px;left:14px;background:var(--paper);padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--bronze);z-index:2}
+@media(max-width:900px){
+  .chapter{padding:7vh 6vw 9vh}
+  .ph .float{width:44%;right:0;bottom:-8%}
+  .chapter.flip .ph .float{left:0}
+}
 .tx .k{color:var(--bronze);display:block;margin-bottom:18px}
 .tx h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.4vw,62px);line-height:1.05;margin-bottom:20px}
 .tx h2 em{font-style:italic;color:var(--bronze)}
 .tx p{color:var(--muted);max-width:480px;margin-bottom:14px}
 .tx .tags{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 30px}
-.tx .tags span{font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;border:1px solid rgba(11,21,48,.25);padding:9px 16px;border-radius:100px}
+.tx .tags span{font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;border:1px solid rgba(27,37,80,.3);padding:9px 16px;border-radius:100px;opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.tx.in .tags span{opacity:1;transform:none}
+.tx.in .tags span:nth-child(2){transition-delay:.12s}
+.tx.in .tags span:nth-child(3){transition-delay:.24s}
 .alt-bg{background:var(--paper2)}
 
-/* giant statement with scroll-fill */
-.statement{padding:18vh 5vw;max-width:1200px;margin:0 auto}
+/* navy statement block with scroll-fill + counters */
+.navyblock{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.navyblock::after{content:"Privée";position:absolute;bottom:-.28em;right:-.04em;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(140px,24vw,380px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(212,182,120,.16);pointer-events:none;user-select:none}
+.statement{padding:min(10vh,96px) 5vw min(7vh,66px);max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.statement .caps{color:var(--champ);display:block;margin-bottom:26px}
 .statement p{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,60px);line-height:1.25}
-.statement .w{color:rgba(11,21,48,.16);transition:color .5s var(--ease)}
-.statement .w.on{color:var(--ink)}
-.statement .w.gold.on{color:var(--bronze);font-style:italic}
-
-/* numbers strip */
-.nums{display:grid;grid-template-columns:repeat(4,1fr);max-width:1340px;margin:0 auto;border-top:1px solid rgba(11,21,48,.14)}
+.statement .w{color:rgba(249,247,243,.18);transition:color .5s var(--ease)}
+.statement .w.on{color:#fff}
+.statement .w.gold.on{color:var(--champ);font-style:italic}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);max-width:1340px;margin:0 auto;border-top:1px solid rgba(249,247,243,.18);position:relative;z-index:2}
 @media(max-width:800px){.nums{grid-template-columns:1fr 1fr}}
-.nums div{padding:44px 30px;border-right:1px solid rgba(11,21,48,.14);border-bottom:1px solid rgba(11,21,48,.14)}
+.nums div{padding:36px 30px;border-right:1px solid rgba(249,247,243,.18);border-bottom:1px solid rgba(249,247,243,.18)}
 .nums div:nth-child(4n){border-right:0}
-.nums b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,5vw,70px);line-height:1;color:var(--ink)}
-.nums b i{font-style:italic;color:var(--bronze);font-size:.55em}
-.nums span{color:var(--muted);font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600}
+@media(max-width:800px){.nums div:nth-child(2n){border-right:0}}
+.nums b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,5vw,70px);line-height:1;color:#fff}
+.nums b i{font-style:italic;color:var(--champ);font-size:.55em}
+.nums div>span{color:rgba(249,247,243,.6);font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600}
+.nums b span{font:inherit;color:inherit;letter-spacing:0}
+.navyblock .ctaend{position:relative;z-index:2;padding:50px 5vw 64px;text-align:center}
 
-/* film strip gallery */
-.strip{padding:12vh 0;overflow:hidden}
+/* film strip gallery — auto drift */
+.strip{padding:min(8vh,76px) 0;overflow:hidden}
 .strip .head{padding:0 5vw;display:flex;justify-content:space-between;align-items:flex-end;max-width:1340px;margin:0 auto 46px;gap:20px;flex-wrap:wrap}
 .strip h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.6vw,48px)}
 .strip h2 em{font-style:italic;color:var(--bronze)}
-.rail{display:flex;gap:18px;padding:0 5vw;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
-.rail::-webkit-scrollbar{display:none}
-.rail figure{flex:0 0 min(420px,78vw);scroll-snap-align:start}
-.rail img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.railwrap{overflow:hidden}
+.rail{display:flex;gap:18px;padding:0 5vw;width:max-content;animation:drift 50s linear infinite}
+.railwrap:hover .rail{animation-play-state:paused}
+@keyframes drift{to{transform:translateX(-50%)}}
+.rail figure{flex:0 0 min(420px,74vw)}
+.rail img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s var(--ease)}
+.rail figure:hover img{transform:scale(1.04)}
 .rail figcaption{display:flex;justify-content:space-between;margin-top:10px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
 .rail figure:nth-child(even){transform:translateY(34px)}
+@media(max-width:760px){.rail figure:nth-child(even){transform:translateY(20px)}}
 
 /* closing */
-.closing{padding:18vh 5vw;text-align:center;position:relative}
-.closing h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,7vw,100px);line-height:1.02}
+.closing{padding:min(11vh,104px) 5vw;text-align:center;position:relative}
+.closing h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,7vw,100px);line-height:1.04}
 .closing h2 em{font-style:italic;color:var(--bronze)}
 .closing h2 .out{-webkit-text-stroke:1.5px var(--ink);color:transparent}
 .closing p{margin:26px auto 34px;max-width:480px;color:var(--muted)}
 .closing .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+@media(max-width:760px){
+  .closing{padding:9vh 6vw}
+  .closing .ctas{flex-direction:column;align-items:stretch}
+}
 
-footer{border-top:1px solid rgba(11,21,48,.14);padding:60px 5vw 40px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
+footer{background:var(--navy);color:#fff;padding:70px 5vw 46px;display:flex;justify-content:space-between;gap:46px;flex-wrap:wrap;align-items:flex-start}
 footer .flogo{height:80px}
 footer .cols{display:flex;gap:70px;flex-wrap:wrap}
-footer h4{font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze);margin-bottom:12px}
-footer a{display:block;text-decoration:none;font-size:14px;margin-bottom:8px;color:var(--muted)}
-footer a:hover{color:var(--ink)}
+footer h4{font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--champ);margin-bottom:12px}
+footer a{display:block;text-decoration:none;font-size:14px;margin-bottom:8px;color:rgba(249,247,243,.72)}
+footer a:hover{color:#fff}
+footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero .meta,.hero h1 .row,.hero .foot{opacity:1;transform:none}
+  .reveal,.tx .tags span{opacity:1;transform:none}
+  .ph .frame{clip-path:none}
+  .statement .w{color:#fff}
+}
 </style>
 </head>
 <body>
 
+<div id="prog"></div>
 <header id="hd">
   <a class="logo" href="#"><img src="img/logo-h-navy.png" alt="Privée Events by Grace Collection"></a>
   <div class="right">
@@ -137,6 +229,9 @@ footer a:hover{color:var(--ink)}
 </header>
 
 <section class="hero">
+  <div class="palms l" aria-hidden="true"><img src="img/palmera-3-left.webp" alt=""></div>
+  <div class="palms r" aria-hidden="true"><img src="img/palmera-3-right.webp" alt=""></div>
+  <img class="sunspin" src="img/sun.webp" alt="" aria-hidden="true">
   <div class="meta caps">
     <span>Privée Events by Grace Collection</span>
     <span>Ocean Park · San Juan, PR</span>
@@ -158,6 +253,21 @@ footer a:hover{color:var(--ink)}
   <div class="scroll-cue"></div>
 </section>
 
+<section class="cinema" id="film">
+  <div class="stick">
+    <div class="vwrap" id="vwrap">
+      <img class="vposter" src="https://video.villaazurehotelpr.com/hero-azure-first-poster.webp" alt="Villa Azure from above">
+      <video id="herovid" muted loop playsinline webkit-playsinline preload="metadata" disableremoteplayback disablepictureinpicture poster="https://video.villaazurehotelpr.com/hero-azure-first-poster.webp"></video>
+      <div class="vscrim"></div>
+      <div class="vlabel">
+        <span class="caps">The property</span>
+        <h3>One gate. One shoreline. <em>One event.</em></h3>
+      </div>
+      <span class="vcount">Villa Azure · Ocean Park</span>
+    </div>
+  </div>
+</section>
+
 <div class="marq" aria-hidden="true">
   <div class="track">
     <span>Weddings <i>·</i></span><span>Corporate retreats <i>·</i></span><span>Fitness &amp; wellness <i>·</i></span><span>Birthdays <i>·</i></span><span>Anniversaries <i>·</i></span><span>Private dinners <i>·</i></span>
@@ -166,11 +276,11 @@ footer a:hover{color:var(--ink)}
 </div>
 
 <section class="chapter" id="w">
-  <span class="idx">01</span>
+  <span class="idx" data-para="-.06">01</span>
   <div class="grid">
     <div class="ph">
-      <img class="main" src="img/104A6599.jpg" alt="Ceremony on the oceanfront lawn">
-      <img class="float" src="img/104A7886.jpg" alt="Twilight lanterns">
+      <div class="frame"><img class="main" data-para=".05" src="img/104A6599.jpg" alt="Ceremony on the oceanfront lawn"></div>
+      <img class="float" data-para="-.04" src="img/104A7886.jpg" alt="Twilight lanterns">
       <span class="lbl">Weddings</span>
     </div>
     <div class="tx reveal">
@@ -184,11 +294,11 @@ footer a:hover{color:var(--ink)}
 </section>
 
 <section class="chapter flip alt-bg" id="c">
-  <span class="idx">02</span>
+  <span class="idx" data-para="-.06">02</span>
   <div class="grid">
     <div class="ph">
-      <img class="main" src="img/R5C28191.jpg" alt="Lounge interior for corporate groups">
-      <img class="float" src="img/104A7000.jpg" alt="Guests mingling">
+      <div class="frame"><img class="main" data-para=".05" src="img/R5C28191.jpg" alt="Lounge interior for corporate groups"></div>
+      <img class="float" data-para="-.04" src="img/104A7000.jpg" alt="Guests mingling">
       <span class="lbl">Corporate</span>
     </div>
     <div class="tx reveal">
@@ -202,11 +312,11 @@ footer a:hover{color:var(--ink)}
 </section>
 
 <section class="chapter" id="r">
-  <span class="idx">03</span>
+  <span class="idx" data-para="-.06">03</span>
   <div class="grid">
     <div class="ph">
-      <img class="main" src="img/IMG_3190.jpg" alt="Pool and gardens">
-      <img class="float" src="img/0C4A3181.jpg" alt="Poolside">
+      <div class="frame"><img class="main" data-para=".05" src="img/IMG_3190.jpg" alt="Pool and gardens"></div>
+      <img class="float" data-para="-.04" src="img/0C4A3181.jpg" alt="Poolside">
       <span class="lbl">Wellness</span>
     </div>
     <div class="tx reveal">
@@ -220,11 +330,11 @@ footer a:hover{color:var(--ink)}
 </section>
 
 <section class="chapter flip alt-bg" id="cel">
-  <span class="idx">04</span>
+  <span class="idx" data-para="-.06">04</span>
   <div class="grid">
     <div class="ph">
-      <img class="main" src="img/104A7886.jpg" alt="Twilight celebration with lanterns">
-      <img class="float" src="img/104A7042.jpg" alt="Live guitarist">
+      <div class="frame"><img class="main" data-para=".05" src="img/104A7886.jpg" alt="Twilight celebration with lanterns"></div>
+      <img class="float" data-para="-.04" src="img/104A7042.jpg" alt="Live guitarist">
       <span class="lbl">Celebrations</span>
     </div>
     <div class="tx reveal">
@@ -237,15 +347,27 @@ footer a:hover{color:var(--ink)}
   </div>
 </section>
 
-<section class="statement" id="st">
-  <p id="fillme"></p>
-</section>
+<div class="navyblock">
+  <section class="statement" id="st">
+    <span class="caps">The Privée promise</span>
+    <p id="fillme"></p>
+  </section>
+  <div class="nums">
+    <div class="reveal"><b data-count="16">0</b><span>Oceanside rooms</span></div>
+    <div class="reveal"><b data-count="36">0</b><span>Guests sleep onsite</span></div>
+    <div class="reveal"><b data-count="150">0</b><span>Seated guests</span></div>
+    <div class="reveal"><b><i>from</i> $<span data-count="4000" data-comma>0</span></b><span>Transparent pricing</span></div>
+  </div>
+  <div class="ctaend reveal">
+    <a class="btn btn-ghost" href="../questionnaire.html">See if your date is free</a>
+  </div>
+</div>
 
-<div class="nums">
-  <div class="reveal"><b>16</b><span>Oceanside rooms</span></div>
-  <div class="reveal"><b>36</b><span>Guests sleep onsite</span></div>
-  <div class="reveal"><b>150</b><span>Seated guests</span></div>
-  <div class="reveal"><b><i>from</i> $4,000</b><span>Transparent pricing</span></div>
+<div class="marq rev" aria-hidden="true">
+  <div class="track">
+    <span>One hotel <i>·</i></span><span>One event at a time <i>·</i></span><span>Zero shared spaces <i>·</i></span><span>Response within 24 hours <i>·</i></span>
+    <span>One hotel <i>·</i></span><span>One event at a time <i>·</i></span><span>Zero shared spaces <i>·</i></span><span>Response within 24 hours <i>·</i></span>
+  </div>
 </div>
 
 <section class="strip">
@@ -253,6 +375,7 @@ footer a:hover{color:var(--ink)}
     <h2>Shot at the hotel. <em>Not a stock photo in sight.</em></h2>
     <a class="btn btn-line" href="../questionnaire.html">Request availability</a>
   </div>
+  <div class="railwrap">
   <div class="rail">
     <figure><img src="img/104A6569.jpg" alt="Cocktail hour"><figcaption><span>Cocktail hour</span><span>Ocean Park</span></figcaption></figure>
     <figure><img src="img/104A7671.jpg" alt="Canapés"><figcaption><span>Private gastronomy</span><span>Ocean Park</span></figcaption></figure>
@@ -260,6 +383,13 @@ footer a:hover{color:var(--ink)}
     <figure><img src="img/DSC08145.jpg" alt="Suite interior"><figcaption><span>Oceanside suite</span><span>Villa Azure</span></figcaption></figure>
     <figure><img src="img/104A8077.jpg" alt="Night event"><figcaption><span>After dark</span><span>Ocean Park</span></figcaption></figure>
     <figure><img src="img/IMG_3193.jpg" alt="Pool"><figcaption><span>The pool</span><span>Villa Azure</span></figcaption></figure>
+    <figure><img src="img/104A6569.jpg" alt="Cocktail hour"><figcaption><span>Cocktail hour</span><span>Ocean Park</span></figcaption></figure>
+    <figure><img src="img/104A7671.jpg" alt="Canapés"><figcaption><span>Private gastronomy</span><span>Ocean Park</span></figcaption></figure>
+    <figure><img src="img/104A7959.jpg" alt="Group celebration"><figcaption><span>The guest list</span><span>Ocean Park</span></figcaption></figure>
+    <figure><img src="img/DSC08145.jpg" alt="Suite interior"><figcaption><span>Oceanside suite</span><span>Villa Azure</span></figcaption></figure>
+    <figure><img src="img/104A8077.jpg" alt="Night event"><figcaption><span>After dark</span><span>Ocean Park</span></figcaption></figure>
+    <figure><img src="img/IMG_3193.jpg" alt="Pool"><figcaption><span>The pool</span><span>Villa Azure</span></figcaption></figure>
+  </div>
   </div>
 </section>
 
@@ -274,8 +404,8 @@ footer a:hover{color:var(--ink)}
 
 <footer>
   <div>
-    <img class="flogo" src="img/logo-s-navy.png" alt="Privée Events by Grace Collection">
-    <p style="font-size:13.5px;color:var(--muted);margin-top:12px">Villa Azure Boutique Hotel<br>Ocean Park, San Juan, Puerto Rico</p>
+    <img class="flogo" src="img/logo-s-white.png" alt="Privée Events by Grace Collection">
+    <p class="addr">Villa Azure Boutique Hotel<br>Ocean Park, San Juan, Puerto Rico</p>
   </div>
   <div class="cols">
     <div><h4>Occasions</h4><a href="#w">Weddings</a><a href="#c">Corporate retreats</a><a href="#r">Wellness retreats</a><a href="#cel">Celebrations</a></div>
@@ -284,10 +414,12 @@ footer a:hover{color:var(--ink)}
 </footer>
 
 <script>
-const hd=document.getElementById('hd');
-addEventListener('scroll',()=>hd.classList.toggle('solid',scrollY>60),{passive:true});
+const hd=document.getElementById('hd'),prog=document.getElementById('prog');
+const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* reveals + tag stagger + photo clip reveal */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal,.ph').forEach(el=>io.observe(el));
+document.querySelectorAll('.reveal,.ph,.tx').forEach(el=>io.observe(el));
 
 /* word-by-word scroll fill */
 const txt="When you book Privée, the gates close. No other guests. No strangers in your photos. Just your people, the ocean, and a hotel that answers only to you.";
@@ -296,12 +428,55 @@ const holder=document.getElementById('fillme');
 txt.split(" ").forEach(w=>{const s=document.createElement('span');s.className='w'+(gold.has(w)?' gold':'');s.textContent=w+' ';holder.appendChild(s)});
 const ws=[...holder.querySelectorAll('.w')];
 const st=document.getElementById('st');
-addEventListener('scroll',()=>{
+
+/* count-up numbers */
+const fmt=(el,v)=>el.textContent=el.hasAttribute('data-comma')?v.toLocaleString('en-US'):v;
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const el=e.target,end=+el.dataset.count,t0=performance.now(),dur=1400;
+  if(reduced){fmt(el,end);return}
+  (function tick(t){const p=Math.min(1,(t-t0)/dur),ease=1-Math.pow(1-p,3);fmt(el,Math.round(end*ease));if(p<1)requestAnimationFrame(tick)})(t0);
+}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* cinema video */
+const vid=document.getElementById('herovid'),vwrap=document.getElementById('vwrap'),cin=document.querySelector('.cinema');
+const isMobile=matchMedia('(max-width:760px)').matches;
+if(!reduced){
+  vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-azure-paradiso-mobile.mp4':'https://video.villaazurehotelpr.com/hero-azure-paradiso-desktop.mp4';
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)vid.play().catch(()=>{});else vid.pause()}),{threshold:.1});
+  vio.observe(cin);
+}
+const vw0=isMobile?92:90,vh0=isMobile?86:84,vr0=isMobile?16:22;
+
+/* scroll: header, progress, word fill, parallax */
+const paras=[...document.querySelectorAll('[data-para]')];
+function onScroll(){
+  hd.classList.toggle('solid',scrollY>60);
+  prog.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%';
+  /* expanding cinema */
+  const cr=cin.getBoundingClientRect();
+  const cp=Math.min(1,Math.max(0,-cr.top/(cr.height-innerHeight)));
+  vwrap.style.width=(vw0+(100-vw0)*cp)+'vw';
+  vwrap.style.height=(vh0+(100-vh0)*cp)+'svh';
+  vwrap.style.borderRadius=(vr0*(1-cp))+'px';
   const r=st.getBoundingClientRect();
   const p=Math.min(1,Math.max(0,(innerHeight*.78-r.top)/(r.height)));
   const n=Math.floor(p*ws.length);
   ws.forEach((w,i)=>w.classList.toggle('on',i<n));
-},{passive:true});
+  if(!reduced){
+    paras.forEach(el=>{
+      const b=el.getBoundingClientRect();
+      if(b.bottom<-200||b.top>innerHeight+200)return;
+      const c=(b.top+b.height/2-innerHeight/2)*+el.dataset.para;
+      const base=el.classList.contains('main')?' scale(1.12)':'';
+      const rot=el.classList.contains('float')?(el.closest('.flip')?' rotate(-3deg)':' rotate(3deg)'):'';
+      el.style.transform=`translateY(${c.toFixed(1)}px)${base}${rot}`;
+    });
+  }
+}
+addEventListener('scroll',onScroll,{passive:true});
+onScroll();
 </script>
 </body>
 </html>
