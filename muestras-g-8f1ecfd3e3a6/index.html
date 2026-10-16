@@ -439,9 +439,15 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 const vid=document.getElementById('herovid'),vwrap=document.getElementById('vwrap'),cin=document.querySelector('.cinema');
 const isMobile=matchMedia('(max-width:760px)').matches;
 if(!reduced){
+  vid.muted=true;vid.defaultMuted=true;vid.autoplay=true;
   vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-azure-paradiso-mobile.mp4':'https://video.villaazurehotelpr.com/hero-azure-paradiso-desktop.mp4';
-  const vio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)vid.play().catch(()=>{});else vid.pause()}),{threshold:.1});
+  let inView=false;
+  const tryPlay=()=>{if(inView&&vid.paused)vid.play().catch(()=>{})};
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{inView=e.isIntersecting;if(inView)tryPlay();else vid.pause()}),{threshold:.1});
   vio.observe(cin);
+  vid.addEventListener('loadeddata',tryPlay);
+  /* iOS/Low Power: autoplay can be blocked until a user gesture */
+  ['touchstart','scroll','click'].forEach(ev=>addEventListener(ev,tryPlay,{passive:true}));
 }
 const vw0=isMobile?92:90,vh0=isMobile?90:84,vr0=isMobile?16:22;
 
