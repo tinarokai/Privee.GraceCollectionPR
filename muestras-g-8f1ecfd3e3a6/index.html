@@ -259,8 +259,8 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
 <section class="cinema" id="film">
   <div class="stick">
     <div class="vwrap" id="vwrap">
-      <img class="vposter" src="https://video.villaazurehotelpr.com/hero-azure-first-poster.webp" alt="Villa Azure from above">
-      <video id="herovid" muted loop playsinline webkit-playsinline preload="metadata" disableremoteplayback disablepictureinpicture poster="https://video.villaazurehotelpr.com/hero-azure-first-poster.webp"></video>
+      <img class="vposter" src="https://video.villaazurehotelpr.com/hero-privee-poster.jpg" alt="Villa Azure from above">
+      <video id="herovid" muted loop playsinline webkit-playsinline preload="metadata" disableremoteplayback disablepictureinpicture poster="https://video.villaazurehotelpr.com/hero-privee-poster.jpg"></video>
       <div class="vscrim"></div>
       <div class="vlabel">
         <span class="caps">The property</span>
@@ -446,7 +446,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 const vid=document.getElementById('herovid'),vwrap=document.getElementById('vwrap'),cin=document.querySelector('.cinema');
 const isMobile=matchMedia('(max-width:760px)').matches;
 vid.muted=true;vid.defaultMuted=true;vid.autoplay=true;
-vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-azure-paradiso-mobile.mp4':'https://video.villaazurehotelpr.com/hero-azure-paradiso-desktop.mp4';
+vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-privee-mobile.mp4':'https://video.villaazurehotelpr.com/hero-privee-desktop.mp4';
 {
   let inView=false;
   const tryPlay=()=>{if(inView&&vid.paused)vid.play().catch(()=>{})};
