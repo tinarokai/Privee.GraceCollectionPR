@@ -117,26 +117,36 @@ header .right a.cta:hover{background:var(--bronze)}
 .marq.rev span i{color:var(--champ)}
 @keyframes marqrev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 
-/* chapters */
+/* occasions */
 .chapter{padding:min(8vh,76px) 5vw;position:relative;overflow:hidden}
-.chapter .idx{position:absolute;top:8vh;right:4vw;font-family:'Cormorant Garamond',serif;font-size:clamp(100px,16vw,240px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,137,46,.4);user-select:none;pointer-events:none;will-change:transform}
-.chapter .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;align-items:center;max-width:1340px;margin:0 auto}
-@media(max-width:900px){.chapter .grid{grid-template-columns:1fr;gap:44px}}
+.chapter .grid{display:grid;grid-template-columns:1.08fr .92fr;gap:5vw;align-items:center;max-width:1340px;margin:0 auto}
+@media(max-width:900px){.chapter .grid{grid-template-columns:1fr;gap:38px}}
 .chapter.flip .grid > .ph{order:2}
 @media(max-width:900px){.chapter.flip .grid > .ph{order:0}}
 .ph{position:relative}
-.ph .frame{overflow:hidden;clip-path:inset(12% 12% 12% 12%);transition:clip-path 1.2s var(--ease)}
+.ph .frame{overflow:hidden;position:relative;clip-path:inset(10% 10% 10% 10%);transition:clip-path 1.1s var(--ease)}
 .ph.in .frame{clip-path:inset(0 0 0 0)}
-.ph .main{width:100%;aspect-ratio:4/4.4;object-fit:cover;will-change:transform;transform:scale(1.12)}
-.ph .float{position:absolute;width:38%;aspect-ratio:1/1.25;object-fit:cover;right:-6%;bottom:-7%;box-shadow:0 30px 60px rgba(11,21,48,.28);transform:rotate(3deg);will-change:transform}
-.chapter.flip .ph .float{right:auto;left:-6%;transform:rotate(-3deg)}
+.ph .main{width:100%;aspect-ratio:16/10.6;object-fit:cover;display:block;will-change:transform;transform:scale(1.12)}
+.ph .duo{display:grid;grid-template-columns:1fr 1.32fr;gap:14px;margin-top:14px;align-items:start}
+.chapter.flip .duo{grid-template-columns:1.32fr 1fr}
+.chapter.flip .duo .s1{order:2}
+.ph .duo .shot{overflow:hidden;opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease) .25s,transform .9s var(--ease) .25s}
+.ph.in .duo .shot{opacity:1;transform:none}
+.ph.in .duo .s2{transition-delay:.4s}
+.ph .duo img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform;transform:scale(1.12)}
+.ph .duo .s1{aspect-ratio:3/3.8}
+.ph .duo .s2{aspect-ratio:4/2.9}
+@media(min-width:901px){
+  .ph .duo .s1{margin-top:-17%;position:relative;z-index:2;border:8px solid var(--paper);box-shadow:0 30px 60px rgba(11,21,48,.22)}
+  .alt-bg .ph .duo .s1{border-color:var(--paper2)}
+}
 .ph .lbl{position:absolute;top:14px;left:14px;background:var(--paper);padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--bronze);z-index:2}
 @media(max-width:900px){
   .chapter{padding:7vh 6vw 9vh}
-  .ph .float{width:44%;right:0;bottom:-8%}
-  .chapter.flip .ph .float{left:0}
+  .ph .duo{gap:10px;margin-top:10px}
 }
 .tx .k{color:var(--bronze);display:block;margin-bottom:18px}
+.tx .k::before{content:"";display:inline-block;width:36px;height:1px;background:var(--bronze);vertical-align:middle;margin-right:14px}
 .tx h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.4vw,62px);line-height:1.05;margin-bottom:20px}
 .tx h2 em{font-style:italic;color:var(--bronze)}
 .tx p{color:var(--muted);max-width:480px;margin-bottom:14px}
@@ -215,7 +225,7 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
   .marq .track{animation:marq 30s linear infinite!important}
   .marq.rev .track{animation:marqrev 36s linear infinite!important}
   .hero .meta,.hero h1 .row,.hero .foot{opacity:1;transform:none}
-  .reveal,.tx .tags span{opacity:1;transform:none}
+  .reveal,.tx .tags span,.ph .duo .shot{opacity:1;transform:none}
   .ph .frame{clip-path:none}
   .statement .w{color:#fff}
 }
@@ -279,15 +289,17 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
 </div>
 
 <section class="chapter" id="w">
-  <span class="idx" data-para="-.06">01</span>
   <div class="grid">
     <div class="ph">
       <div class="frame"><img class="main" data-para=".05" src="img/104A6599.jpg" alt="Ceremony on the oceanfront lawn"></div>
-      <img class="float" data-para="-.04" src="img/104A7886.jpg" alt="Twilight lanterns">
-      <span class="lbl">Weddings</span>
+      <div class="duo">
+        <div class="shot s1"><img class="zoom" data-para="-.03" src="img/104A7000.jpg" alt="Wedding guests in the garden"></div>
+        <div class="shot s2"><img class="zoom" data-para=".03" src="img/104A7886.jpg" alt="Twilight lanterns"></div>
+      </div>
+      <span class="lbl">The oceanfront lawn</span>
     </div>
     <div class="tx reveal">
-      <span class="caps k">Chapter 01 — Weddings</span>
+      <span class="caps k">Weddings</span>
       <h2>Married by the ocean, <em>surrounded</em> by no one else.</h2>
       <p>Ceremony on the lawn, golden-hour cocktails, dinner and dancing under the stars — and your families asleep upstairs, not across town.</p>
       <div class="tags"><span>150 seated</span><span>16 suites onsite</span><span>Music till midnight Fri–Sat</span></div>
@@ -297,15 +309,17 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
 </section>
 
 <section class="chapter flip alt-bg" id="c">
-  <span class="idx" data-para="-.06">02</span>
   <div class="grid">
     <div class="ph">
-      <div class="frame"><img class="main" data-para=".05" src="img/R5C28191.jpg" alt="Lounge interior for corporate groups"></div>
-      <img class="float" data-para="-.04" src="img/104A7000.jpg" alt="Guests mingling">
-      <span class="lbl">Corporate</span>
+      <div class="frame"><img class="main" data-para=".05" src="img/DSC07932.jpg" alt="The hotel and the Atlantic"></div>
+      <div class="duo">
+        <div class="shot s1"><img class="zoom" data-para="-.03" src="img/R5C28191.jpg" alt="Private dining room"></div>
+        <div class="shot s2"><img class="zoom" data-para=".03" src="img/DSC08145.jpg" alt="Oceanside suite"></div>
+      </div>
+      <span class="lbl">Ocean Park, San Juan</span>
     </div>
     <div class="tx reveal">
-      <span class="caps k">Chapter 02 — Corporate retreats</span>
+      <span class="caps k">Corporate retreats</span>
       <h2>The offsite that <em>outperforms</em> the boardroom.</h2>
       <p>Strategy by the garden, dinners by the Atlantic, the whole leadership team under one roof — with a single contact for rooms, catering and production.</p>
       <div class="tags"><span>Meet · dine · sleep onsite</span><span>15 min from SJU</span><span>One point of contact</span></div>
@@ -315,15 +329,17 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
 </section>
 
 <section class="chapter" id="r">
-  <span class="idx" data-para="-.06">03</span>
   <div class="grid">
     <div class="ph">
       <div class="frame"><img class="main" data-para=".05" src="img/IMG_3190.jpg" alt="Pool and gardens"></div>
-      <img class="float" data-para="-.04" src="img/0C4A3181.jpg" alt="Poolside">
-      <span class="lbl">Wellness</span>
+      <div class="duo">
+        <div class="shot s1"><img class="zoom" data-para="-.03" src="img/0C4A3181.jpg" alt="Poolside loungers"></div>
+        <div class="shot s2"><img class="zoom" data-para=".03" src="img/IMG_3193.jpg" alt="The pool"></div>
+      </div>
+      <span class="lbl">Pool &amp; gardens</span>
     </div>
     <div class="tx reveal">
-      <span class="caps k">Chapter 03 — Fitness &amp; wellness retreats</span>
+      <span class="caps k">Fitness &amp; wellness retreats</span>
       <h2>Sunrise yoga. Ocean air. A hotel that's <em>all yours.</em></h2>
       <p>Pools, gardens and green areas for sessions, retreat menus with our preferred chefs, and oceanside rooms for up to 36 guests — steps from the sand.</p>
       <div class="tags"><span>36 overnight guests</span><span>Retreat menus</span><span>Beach at your door</span></div>
@@ -333,15 +349,17 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
 </section>
 
 <section class="chapter flip alt-bg" id="cel">
-  <span class="idx" data-para="-.06">04</span>
   <div class="grid">
     <div class="ph">
-      <div class="frame"><img class="main" data-para=".05" src="img/104A7886.jpg" alt="Twilight celebration with lanterns"></div>
-      <img class="float" data-para="-.04" src="img/104A7042.jpg" alt="Live guitarist">
-      <span class="lbl">Celebrations</span>
+      <div class="frame"><img class="main" data-para=".05" src="img/104A7042.jpg" alt="Live music at dusk"></div>
+      <div class="duo">
+        <div class="shot s1"><img class="zoom" data-para="-.03" src="img/104A8077.jpg" alt="Guests after dark"></div>
+        <div class="shot s2"><img class="zoom" data-para=".03" src="img/104A6569.jpg" alt="Cocktail tables on the lawn"></div>
+      </div>
+      <span class="lbl">After dark</span>
     </div>
     <div class="tx reveal">
-      <span class="caps k">Chapter 04 — Birthdays, anniversaries &amp; more</span>
+      <span class="caps k">Celebrations</span>
       <h2>Milestones deserve more than a <em>reserved table.</em></h2>
       <p>Lanterns at dusk, live music, cocktails by the pool — from an intimate dinner for 20 to a party for 150. And nobody drives home after the last toast.</p>
       <div class="tags"><span>Birthdays</span><span>Anniversaries</span><span>Private dinners</span></div>
@@ -484,9 +502,8 @@ function onScroll(){
       const b=el.getBoundingClientRect();
       if(b.bottom<-200||b.top>innerHeight+200)return;
       const c=(b.top+b.height/2-innerHeight/2)*+el.dataset.para;
-      const base=el.classList.contains('main')?' scale(1.12)':'';
-      const rot=el.classList.contains('float')?(el.closest('.flip')?' rotate(-3deg)':' rotate(3deg)'):'';
-      el.style.transform=`translateY(${c.toFixed(1)}px)${base}${rot}`;
+      const base=(el.classList.contains('main')||el.classList.contains('zoom'))?' scale(1.12)':'';
+      el.style.transform=`translateY(${c.toFixed(1)}px)${base}`;
     });
   }
 }
