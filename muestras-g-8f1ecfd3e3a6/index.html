@@ -235,7 +235,7 @@ header .right a.cta:hover{background:var(--bronze)}
 .navyblock .ctaend{position:relative;z-index:2;padding:50px 5vw 64px;text-align:center}
 
 /* film strip gallery — auto drift */
-.strip{padding:min(8vh,76px) 0;overflow:hidden}
+.strip{padding:min(8vh,76px) 0 min(5vh,48px);overflow:hidden}
 .strip .head{padding:0 5vw;display:flex;justify-content:space-between;align-items:flex-end;max-width:1340px;margin:0 auto 46px;gap:28px;flex-wrap:wrap}
 .strip h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.6vw,48px);flex:1 1 520px;max-width:900px}
 .strip .head .btn{white-space:nowrap}
@@ -255,7 +255,7 @@ header .right a.cta:hover{background:var(--bronze)}
 }
 
 /* vendors */
-.vendors{padding:min(10vh,96px) 5vw;text-align:center}
+.vendors{padding:min(5vh,48px) 5vw min(6vh,56px);text-align:center}
 .vendors .vkick{display:flex;align-items:center;justify-content:center;gap:16px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze)}
 .vendors .vkick::before,.vendors .vkick::after{content:"";width:52px;height:1px;background:var(--champ)}
 .vendors .vlogos{margin:46px auto 0;max-width:1100px;display:flex;align-items:center;justify-content:center;gap:clamp(30px,5vw,76px);flex-wrap:wrap}
@@ -264,7 +264,7 @@ header .right a.cta:hover{background:var(--bronze)}
 .vendors .vnote{margin:38px auto 0;max-width:540px;color:var(--muted);font-size:15px}
 
 /* map / find us */
-.findus{padding:min(11vh,104px) 5vw;background:var(--paper)}
+.findus{padding:min(6vh,56px) 5vw min(10vh,96px);background:var(--paper)}
 .findus .inner{max-width:1340px;margin:0 auto;display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:clamp(30px,5vw,70px);align-items:center}
 .findus .fkick{display:flex;align-items:center;gap:16px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze)}
 .findus .fkick::before{content:"";width:52px;height:1px;background:var(--champ)}
@@ -276,7 +276,7 @@ header .right a.cta:hover{background:var(--bronze)}
 .findus .mapwrap{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 30px 70px rgba(11,21,48,.18);aspect-ratio:16/10}
 .findus .mapwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.75) contrast(1.02)}
 @media(max-width:900px){
-  .findus{padding:9vh 6vw}
+  .findus{padding:5vh 6vw 8vh}
   .findus .inner{grid-template-columns:1fr;gap:34px}
   .findus .mapwrap{aspect-ratio:4/3}
 }
