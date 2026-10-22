@@ -219,7 +219,7 @@ header .right a.cta:hover{background:var(--bronze)}
 .strip h2 em{font-style:italic;color:var(--bronze)}
 .railwrap{overflow:hidden}
 .rail{display:flex;gap:18px;padding:0 5vw;width:max-content;animation:drift 50s linear infinite}
-.railwrap:hover .rail{animation-play-state:paused}
+@media(hover:hover) and (pointer:fine){.railwrap:hover .rail{animation-play-state:paused}}
 @keyframes drift{to{transform:translateX(-50%)}}
 .rail figure{flex:0 0 min(420px,74vw)}
 .rail img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s var(--ease)}
@@ -229,6 +229,7 @@ header .right a.cta:hover{background:var(--bronze)}
 @media(max-width:760px){
   .railwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:28px}
   .railwrap::-webkit-scrollbar{display:none}
+  .rail{animation:none!important}
   .rail figure:nth-child(even){transform:translateY(20px)}
 }
 
@@ -256,13 +257,15 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
 
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .rail{animation:drift 50s linear infinite!important}
   .marq .track{animation:marq 30s linear infinite!important}
   .marq.rev .track{animation:marqrev 36s linear infinite!important}
   .hero .meta,.hero h1 .row,.hero .foot{opacity:1;transform:none}
   .reveal,.tx .tags span,.ph .duo .shot{opacity:1;transform:none}
   .ph .frame{clip-path:none}
   .statement .w{color:#fff}
+}
+@media(prefers-reduced-motion:reduce) and (min-width:761px){
+  .rail{animation:drift 50s linear infinite!important}
 }
 </style>
 </head>
@@ -509,11 +512,26 @@ vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-privee-mobile.mp4':'h
   /* iOS/Low Power/Reduce Motion: autoplay can be blocked until a user gesture */
   ['touchstart','scroll','click'].forEach(ev=>addEventListener(ev,tryPlay,{passive:true}));
 }
-/* mobile gallery: auto-drift + swipe (pause drift while touching) */
+/* mobile gallery: scrollLeft-driven auto-drift + swipe (CSS transform drift is desktop-only) */
 {
-  const rw=document.querySelector('.railwrap'),rl=document.querySelector('.rail');let rt;
-  rw.addEventListener('touchstart',()=>{clearTimeout(rt);rl.style.animationPlayState='paused'},{passive:true});
-  const resume=()=>{clearTimeout(rt);rt=setTimeout(()=>{rl.style.animationPlayState=''},3500)};
+  const rw=document.querySelector('.railwrap');
+  const mq=matchMedia('(max-width:760px)');
+  let rt,hold=false,pos=0,last=0;
+  function tick(ts){
+    if(mq.matches){
+      const dt=Math.min(ts-last,50)||16;
+      if(hold){pos=rw.scrollLeft}
+      else{
+        const half=rw.scrollWidth/2;
+        if(half>0){pos+=dt*0.03;if(pos>=half)pos-=half;rw.scrollLeft=pos}
+      }
+    }
+    last=ts;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(ts=>{last=ts;pos=rw.scrollLeft;requestAnimationFrame(tick)});
+  rw.addEventListener('touchstart',()=>{clearTimeout(rt);hold=true},{passive:true});
+  const resume=()=>{clearTimeout(rt);rt=setTimeout(()=>{pos=rw.scrollLeft;hold=false},3500)};
   rw.addEventListener('touchend',resume,{passive:true});
   rw.addEventListener('touchcancel',resume,{passive:true});
 }
