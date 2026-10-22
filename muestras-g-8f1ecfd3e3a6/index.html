@@ -147,6 +147,16 @@ header .lang>span{opacity:.3}
   header .right a.cta{padding:11px 14px;font-size:9px;letter-spacing:.18em}
 }
 
+/* mobile: language toggle lives in the menu */
+#mnav .lang-m{display:flex;justify-content:center;align-items:center;gap:14px;font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.3em;font-weight:600;margin-bottom:6px}
+#mnav .lang-m button{background:none;border:0;cursor:pointer;padding:8px 6px;color:var(--ink);font:inherit;letter-spacing:inherit;opacity:.4}
+#mnav .lang-m button.active{opacity:1;color:var(--bronze)}
+#mnav .lang-m>span{opacity:.3}
+@media(max-width:760px){
+  header .right .lang{display:none}
+  header .right{gap:16px}
+}
+
 /* palms framing the hero — signature of the live site */
 .palms{position:absolute;top:0;width:clamp(200px,21vw,320px);pointer-events:none;z-index:0;mix-blend-mode:multiply;opacity:.7;-webkit-mask-image:linear-gradient(to bottom,black 38%,transparent 74%);mask-image:linear-gradient(to bottom,black 38%,transparent 74%)}
 .palms.l{left:0}
@@ -407,6 +417,7 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
     <a href="#faq">FAQ</a>
   </nav>
   <div class="mfoot">
+    <div class="lang lang-m" role="group" aria-label="Language / Idioma"><button type="button" data-lang="en">EN</button><span>·</span><button type="button" data-lang="es">ES</button></div>
     <a class="btn btn-gold" href="../questionnaire.html" data-t="cta.check">Check your date</a>
   </div>
 </div>
