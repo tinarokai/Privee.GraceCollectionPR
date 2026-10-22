@@ -220,17 +220,17 @@ header .right a.cta:hover{background:var(--bronze)}
 .railwrap{overflow:hidden}
 .rail{display:flex;gap:18px;padding:0 5vw;width:max-content;animation:drift 50s linear infinite}
 @media(hover:hover) and (pointer:fine){.railwrap:hover .rail{animation-play-state:paused}}
-@keyframes drift{to{transform:translateX(-50%)}}
+@keyframes drift{to{transform:translateX(-33.3333%)}}
 .rail figure{flex:0 0 min(420px,74vw)}
 .rail img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s var(--ease)}
 .rail figure:hover img{transform:scale(1.04)}
 .rail figcaption{display:flex;justify-content:space-between;margin-top:10px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-.rail figure:nth-child(even){transform:translateY(34px)}
+.rail figure:nth-child(5n+2),.rail figure:nth-child(5n+4){transform:translateY(34px)}
 @media(max-width:760px){
   .railwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:28px}
   .railwrap::-webkit-scrollbar{display:none}
   .rail{animation:none!important}
-  .rail figure:nth-child(even){transform:translateY(20px)}
+  .rail figure:nth-child(5n+2),.rail figure:nth-child(5n+4){transform:translateY(20px)}
 }
 
 /* closing */
@@ -447,6 +447,11 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
     <figure><img src="img/rail-stair.jpg" alt="Curved staircase in the Villa Azure lobby"><figcaption><span>The curved staircase</span><span>Villa Azure</span></figcaption></figure>
     <figure><img src="img/rail-beach.jpg" alt="Ocean Park beach steps from Villa Azure, San Juan"><figcaption><span>The beach at your gate</span><span>Ocean Park</span></figcaption></figure>
     <figure><img src="img/rail-pergola.jpg" alt="Guests gathered under the pergola"><figcaption><span>The gathering</span><span>Ocean Park</span></figcaption></figure>
+    <figure class="dup"><img src="img/rail-pool.jpg" alt="Glass-walled oceanside pool"><figcaption><span>Glass-walled oceanside pool</span><span>Villa Azure</span></figcaption></figure>
+    <figure class="dup"><img src="img/rail-lounge.jpg" alt="Open-air cocktail lounge styled on the event lawn"><figcaption><span>Open-air cocktail lounge</span><span>Ocean Park</span></figcaption></figure>
+    <figure class="dup"><img src="img/rail-stair.jpg" alt="Curved staircase in the Villa Azure lobby"><figcaption><span>The curved staircase</span><span>Villa Azure</span></figcaption></figure>
+    <figure class="dup"><img src="img/rail-beach.jpg" alt="Ocean Park beach steps from Villa Azure, San Juan"><figcaption><span>The beach at your gate</span><span>Ocean Park</span></figcaption></figure>
+    <figure class="dup"><img src="img/rail-pergola.jpg" alt="Guests gathered under the pergola"><figcaption><span>The gathering</span><span>Ocean Park</span></figcaption></figure>
   </div>
   </div>
 </section>
@@ -512,36 +517,35 @@ vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-privee-mobile.mp4':'h
   /* iOS/Low Power/Reduce Motion: autoplay can be blocked until a user gesture */
   ['touchstart','scroll','click'].forEach(ev=>addEventListener(ev,tryPlay,{passive:true}));
 }
-/* mobile gallery: scrollLeft-driven auto-drift + swipe (CSS transform drift is desktop-only) */
+/* mobile gallery: 3 copies of the set, scrollLeft drift, always re-centered into the
+   middle copy at safe moments (touchstart kills iOS momentum; resume fires after it).
+   A single flick can never reach an empty edge — photos exist in every direction. */
 {
   const rw=document.querySelector('.railwrap');
   const mq=matchMedia('(max-width:760px)');
   let rt,hold=false,pos=0,last=0;
+  const cw=()=>rw.scrollWidth/3;
+  const center=()=>{const c=cw();if(c>0){rw.scrollLeft=c+(rw.scrollLeft%c);pos=rw.scrollLeft}};
+  const init=()=>{if(mq.matches)center()};
+  init();
+  mq.addEventListener('change',init);
   function tick(ts){
     if(mq.matches){
       const dt=Math.min(ts-last,50)||16;
       if(hold){pos=rw.scrollLeft}
       else{
-        const half=rw.scrollWidth/2;
-        if(half>0){pos+=dt*0.03;if(pos>=half)pos-=half;rw.scrollLeft=pos}
+        const c=cw();
+        if(c>0){pos+=dt*0.03;if(pos>=2*c)pos-=c;if(pos<c)pos+=c;rw.scrollLeft=pos}
       }
     }
     last=ts;
     requestAnimationFrame(tick);
   }
-  requestAnimationFrame(ts=>{last=ts;pos=rw.scrollLeft;requestAnimationFrame(tick)});
-  rw.addEventListener('touchstart',()=>{clearTimeout(rt);hold=true},{passive:true});
-  const resume=()=>{clearTimeout(rt);rt=setTimeout(()=>{pos=rw.scrollLeft;hold=false},3500)};
+  requestAnimationFrame(ts=>{last=ts;requestAnimationFrame(tick)});
+  rw.addEventListener('touchstart',()=>{clearTimeout(rt);hold=true;center()},{passive:true});
+  const resume=()=>{clearTimeout(rt);rt=setTimeout(()=>{center();hold=false},3500)};
   rw.addEventListener('touchend',resume,{passive:true});
   rw.addEventListener('touchcancel',resume,{passive:true});
-  /* infinite loop: photos are duplicated, so jumping by half the rail width is invisible */
-  rw.addEventListener('scroll',()=>{
-    if(!mq.matches)return;
-    const half=rw.scrollWidth/2;
-    if(half<=0)return;
-    if(rw.scrollLeft>=half){rw.scrollLeft-=half;pos=rw.scrollLeft}
-    else if(rw.scrollLeft<1&&hold){rw.scrollLeft+=half-1;pos=rw.scrollLeft}
-  },{passive:true});
 }
 const vw0=isMobile?92:90,vh0=isMobile?90:84,vr0=isMobile?16:22;
 
