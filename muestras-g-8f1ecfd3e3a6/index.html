@@ -103,6 +103,40 @@ header .lang>span{opacity:.3}
 #totop:hover{background:var(--bronze);color:#fff;border-color:var(--bronze)}
 #totop svg{display:block}
 @media(max-width:760px){#totop{right:16px;bottom:16px;width:42px;height:42px}}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:10px 2px;flex-direction:column;gap:5px;z-index:61}
+.burger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media(max-width:1000px){.burger{display:flex}}
+#mnav{position:fixed;inset:0;z-index:60;background:var(--paper);display:flex;flex-direction:column;justify-content:center;padding:90px 8vw 40px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+#mnav.open{opacity:1;visibility:visible}
+#mnav .mclose{position:absolute;top:18px;right:5vw;background:none;border:0;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--ink);padding:12px}
+#mnav nav{display:flex;flex-direction:column;gap:4px}
+#mnav nav a{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,8.5vw,52px);font-weight:500;color:var(--ink);text-decoration:none;padding:7px 0;border-bottom:1px solid rgba(11,21,48,.07);display:flex;justify-content:space-between;align-items:center;opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+#mnav nav a::after{content:"→";font-size:.5em;color:var(--bronze)}
+#mnav.open nav a{opacity:1;transform:none}
+#mnav.open nav a:nth-child(1){transition-delay:.06s}#mnav.open nav a:nth-child(2){transition-delay:.11s}#mnav.open nav a:nth-child(3){transition-delay:.16s}#mnav.open nav a:nth-child(4){transition-delay:.21s}#mnav.open nav a:nth-child(5){transition-delay:.26s}#mnav.open nav a:nth-child(6){transition-delay:.31s}
+#mnav .mfoot{margin-top:34px;display:flex;flex-direction:column;gap:12px;opacity:0;transition:opacity .5s var(--ease) .36s}
+#mnav.open .mfoot{opacity:1}
+#mnav .mfoot .btn{text-align:center}
+.press{background:var(--paper2);padding:min(8vh,76px) 5vw min(9vh,88px)}
+.press .phead{max-width:640px;margin:0 auto 48px;text-align:center}
+.press .pkick{display:flex;align-items:center;justify-content:center;gap:16px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze);font-weight:600}
+.press .pkick::before,.press .pkick::after{content:"";width:52px;height:1px;background:var(--champ)}
+.press h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,42px);font-weight:500;line-height:1.2;margin-top:14px}
+.press h2 em{color:var(--bronze)}
+.press .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px;max-width:1180px;margin:0 auto}
+.press .card{background:#fff;border:1px solid rgba(11,21,48,.08);padding:36px 30px 30px;display:flex;flex-direction:column;gap:18px;text-decoration:none;color:var(--ink);transition:transform .35s var(--ease),box-shadow .35s}
+.press .card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(11,21,48,.1)}
+.press .card .q{font-family:'Cormorant Garamond',serif;font-size:21.5px;line-height:1.35;font-weight:500;font-style:italic;flex:1}
+.press .card .q::before{content:"“";color:var(--bronze)}
+.press .card .q::after{content:"”";color:var(--bronze)}
+.press .card .src{border-top:1px solid rgba(11,21,48,.1);padding-top:16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.press .card .src .o{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+.press .card .src .d{font-size:12.5px;color:var(--muted)}
+.press .card .read{font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--bronze)}
+@media(max-width:760px){.press{padding:7vh 6vw 8vh}}
 @media(max-width:1000px){header .right a:not(.cta){display:none}}
 @media(max-width:760px){
   header{padding:14px 4vw}
@@ -358,8 +392,24 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
     <a href="#w" data-t="nav.w">Weddings</a><a href="#c" data-t="nav.c">Corporate</a><a href="#r" data-t="nav.r">Retreats</a><a href="#cel" data-t="nav.cel">Celebrations</a>
     <div class="lang" role="group" aria-label="Language / Idioma"><button type="button" data-lang="en">EN</button><span>·</span><button type="button" data-lang="es">ES</button></div>
     <a class="cta" href="../questionnaire.html" data-t="cta.check">Check your date</a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
   </div>
 </header>
+
+<div id="mnav" aria-hidden="true">
+  <button class="mclose" type="button" data-t="mnav.close">Close</button>
+  <nav>
+    <a href="#w" data-t="nav.w">Weddings</a>
+    <a href="#c" data-t="nav.c">Corporate</a>
+    <a href="#r" data-t="nav.r">Retreats</a>
+    <a href="#cel" data-t="nav.cel">Celebrations</a>
+    <a href="#map" data-t="mnav.map">Find us</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="mfoot">
+    <a class="btn btn-gold" href="../questionnaire.html" data-t="cta.check">Check your date</a>
+  </div>
+</div>
 
 <section class="hero">
   <div class="palms l" aria-hidden="true"><img src="img/palmera-3-left.webp" alt=""></div>
@@ -548,6 +598,35 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
   <p class="vnote" data-t="v.note">Catering, design, rentals and music through our curated list of preferred vendors — teams who already know every corner of the property.</p>
 </section>
 
+<section class="press reveal" id="press">
+  <div class="phead">
+    <p class="pkick" data-t="press.kick">In the press</p>
+    <h2 data-t="press.h2">The venue Puerto Rico's media <em>can't stop writing about.</em></h2>
+  </div>
+  <div class="pgrid">
+    <a class="card" href="https://www.elvocero.com/economia/abre-sus-puertas-villa-paradiso/article_37eb77c8-215b-4838-8a87-e133d95a8966.html" target="_blank" rel="noopener">
+      <p class="q">Quisimos conservar la calidez de una casa de playa puertorriqueña y elevarla a una experiencia distintiva.</p>
+      <div class="src"><span class="o">El Vocero</span><span class="d">Oct 2026</span></div>
+      <span class="read" data-t="press.read">Read the article →</span>
+    </a>
+    <a class="card" href="https://www.elnuevodia.com/negocios/turismo/notas/villa-azure-boutique-hotel-una-apuesta-local-que-toma-forma-en-ocean-park/" target="_blank" rel="noopener">
+      <p class="q">Una apuesta local que toma forma en Ocean Park.</p>
+      <div class="src"><span class="o">El Nuevo Día</span><span class="d">2026</span></div>
+      <span class="read" data-t="press.read">Read the article →</span>
+    </a>
+    <a class="card" href="https://www.telemundopr.com/noticias/puerto-rico/villa-azure-boutique-hotel-nuevo-concepto-de-hospedaje-100-puertorriqueno/2849316/" target="_blank" rel="noopener">
+      <p class="q">Nuevo concepto de hospedaje 100% puertorriqueño.</p>
+      <div class="src"><span class="o">Telemundo PR</span><span class="d">2026</span></div>
+      <span class="read" data-t="press.read">Read the article →</span>
+    </a>
+    <a class="card" href="https://condadodaily.com/villa-azure-second-building-ocean-park/" target="_blank" rel="noopener">
+      <p class="q">Villa Azure brings the Ocean Park boutique hotel to 16 suites.</p>
+      <div class="src"><span class="o">Condado Daily</span><span class="d">Oct 2026</span></div>
+      <span class="read" data-t="press.read">Read the article →</span>
+    </a>
+  </div>
+</section>
+
 <section class="findus" id="map">
   <div class="inner">
     <div class="reveal">
@@ -661,6 +740,8 @@ const ES={
   'strip.h2':'Una sola dirección, todos los escenarios. <em>Aquí es exactamente donde ocurre tu evento.</em>','strip.btn':'Consulta disponibilidad',
   'rail.pool':'Piscina de cristal frente al mar','rail.lounge':'Lounge de cócteles al aire libre','rail.stair':'La escalera curva','rail.beach':'La playa en tu portón','rail.gather':'El encuentro',
   'v.kick':'Nuestros proveedores preferidos','v.note':'Catering, diseño, alquileres y música a través de nuestra lista curada de proveedores preferidos — equipos que ya conocen cada rincón de la propiedad.',
+  'press.kick':'En la prensa','press.h2':'El venue del que la prensa de Puerto Rico <em>no deja de escribir.</em>','press.read':'Lee el artículo →',
+  'mnav.close':'Cerrar','mnav.map':'Encuéntranos',
   'f.kick':'Encuéntranos','f.h2':'Sobre la arena en <em>Ocean Park</em>','f.near':'Directamente en la playa de Ocean Park — a 10 minutos del aeropuerto internacional de San Juan (SJU), 5 de Condado y 15 del Viejo San Juan.','f.btn':'Cómo llegar',
   'faq.kick':'Buenas preguntas','faq.h2':'Todo lo que parejas y planners <em>nos preguntan primero</em>','faq.intro':'Respuestas directas sobre privacidad, precios y cómo funciona realmente un evento en Villa Azure.',
   'faq.q1':'¿Podemos rentar el hotel completo para un evento privado en San Juan?',
@@ -791,6 +872,21 @@ function onScroll(){
   }
 }
 addEventListener('scroll',onScroll,{passive:true});
+
+/* mobile menu */
+const burger=document.querySelector('.burger'),mnav=document.getElementById('mnav');
+function setMenu(open){
+  burger.classList.toggle('open',open);
+  mnav.classList.toggle('open',open);
+  burger.setAttribute('aria-expanded',open);
+  mnav.setAttribute('aria-hidden',!open);
+  document.body.style.overflow=open?'hidden':'';
+}
+burger.addEventListener('click',()=>setMenu(!mnav.classList.contains('open')));
+mnav.querySelector('.mclose').addEventListener('click',()=>setMenu(false));
+mnav.querySelectorAll('nav a, .mfoot a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&mnav.classList.contains('open'))setMenu(false)});
+
 applyLang(); /* builds the fill text and runs onScroll once */
 </script>
 </body>
