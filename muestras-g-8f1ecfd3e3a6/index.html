@@ -534,6 +534,14 @@ vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-privee-mobile.mp4':'h
   const resume=()=>{clearTimeout(rt);rt=setTimeout(()=>{pos=rw.scrollLeft;hold=false},3500)};
   rw.addEventListener('touchend',resume,{passive:true});
   rw.addEventListener('touchcancel',resume,{passive:true});
+  /* infinite loop: photos are duplicated, so jumping by half the rail width is invisible */
+  rw.addEventListener('scroll',()=>{
+    if(!mq.matches)return;
+    const half=rw.scrollWidth/2;
+    if(half<=0)return;
+    if(rw.scrollLeft>=half){rw.scrollLeft-=half;pos=rw.scrollLeft}
+    else if(rw.scrollLeft<1&&hold){rw.scrollLeft+=half-1;pos=rw.scrollLeft}
+  },{passive:true});
 }
 const vw0=isMobile?92:90,vh0=isMobile?90:84,vr0=isMobile?16:22;
 
