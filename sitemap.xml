@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://privee.gracecollection.com/</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://privee.gracecollectionpr.com/</loc>
+    <lastmod>2026-10-22</lastmod>
   </url>
   <url>
-    <loc>https://privee.gracecollection.com/terms</loc>
+    <loc>https://privee.gracecollectionpr.com/terms</loc>
     <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
 </urlset>
