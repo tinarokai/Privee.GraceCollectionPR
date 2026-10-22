@@ -147,13 +147,13 @@ header .lang>span{opacity:.3}
   header .right a.cta{padding:11px 14px;font-size:9px;letter-spacing:.18em}
 }
 
-/* mobile: language toggle lives in the menu */
-#mnav .lang-m{display:flex;justify-content:center;align-items:center;gap:14px;font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.3em;font-weight:600;margin-bottom:6px}
-#mnav .lang-m button{background:none;border:0;cursor:pointer;padding:8px 6px;color:var(--ink);font:inherit;letter-spacing:inherit;opacity:.4}
-#mnav .lang-m button.active{opacity:1;color:var(--bronze)}
-#mnav .lang-m>span{opacity:.3}
+/* mobile: language toggle under the logo */
+header .brand{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+header .lang-m{display:none}
 @media(max-width:760px){
   header .right .lang{display:none}
+  header .lang-m{display:flex;font-size:9px;letter-spacing:.24em;gap:6px;padding-left:2px}
+  header .lang-m button{padding:2px 2px}
   header .right{gap:16px}
 }
 
@@ -397,7 +397,7 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
 
 <div id="prog"></div>
 <header id="hd">
-  <a class="logo" href="#"><img src="img/logo-h-navy.png" alt="Privée Events by Grace Collection"></a>
+  <div class="brand"><a class="logo" href="#"><img src="img/logo-h-navy.png" alt="Privée Events by Grace Collection"></a><div class="lang lang-m" role="group" aria-label="Language / Idioma"><button type="button" data-lang="en">EN</button><span>·</span><button type="button" data-lang="es">ES</button></div></div>
   <div class="right">
     <a href="#w" data-t="nav.w">Weddings</a><a href="#c" data-t="nav.c">Corporate</a><a href="#r" data-t="nav.r">Retreats</a><a href="#cel" data-t="nav.cel">Celebrations</a>
     <div class="lang" role="group" aria-label="Language / Idioma"><button type="button" data-lang="en">EN</button><span>·</span><button type="button" data-lang="es">ES</button></div>
@@ -417,7 +417,6 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
     <a href="#faq">FAQ</a>
   </nav>
   <div class="mfoot">
-    <div class="lang lang-m" role="group" aria-label="Language / Idioma"><button type="button" data-lang="en">EN</button><span>·</span><button type="button" data-lang="es">ES</button></div>
     <a class="btn btn-gold" href="../questionnaire.html" data-t="cta.check">Check your date</a>
   </div>
 </div>
