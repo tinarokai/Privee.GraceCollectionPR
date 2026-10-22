@@ -35,6 +35,22 @@
   "sameAs": ["https://www.instagram.com/privee.gracecollectionpr"]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Can we rent the entire hotel for a private event in San Juan?","acceptedAnswer":{"@type":"Answer","text":"Yes — that is the only way Privée works. Your group takes over all 16 en-suite designer suites of Villa Azure Boutique Hotel in Ocean Park, the gates close, and no other guests share the property. One event at a time, with the beach steps from your door."}},
+    {"@type":"Question","name":"How much does a private event at Villa Azure cost?","acceptedAnswer":{"@type":"Answer","text":"Private events start at $4,000, in addition to lodging. Weekend celebrations (Friday–Sunday) require a full-property buyout with a 3-night minimum stay. Your final quote depends on the date, group size and format."}},
+    {"@type":"Question","name":"How many guests can stay overnight?","acceptedAnswer":{"@type":"Answer","text":"Up to 36 overnight guests across 16 en-suite designer suites. For the celebration itself, your guest list can go beyond the overnight group — tell us your numbers and we will confirm what works for your format."}},
+    {"@type":"Question","name":"How late can the music play?","acceptedAnswer":{"@type":"Answer","text":"Until midnight on Friday and Saturday, and until 10 PM on other nights. Ocean Park is a beachfront residential neighborhood, and keeping it gracious with our neighbors is part of what keeps this venue possible."}},
+    {"@type":"Question","name":"Who handles catering, rentals and music?","acceptedAnswer":{"@type":"Answer","text":"You will work from our curated list of preferred vendors — caterers, event design, rentals and music teams who already know every corner of the property, including The Lounge, AKUA Events Design Group, Chef Chaymol and Music Factory."}},
+    {"@type":"Question","name":"Where do extra guests stay if the suites are full?","acceptedAnswer":{"@type":"Answer","text":"Our concierge can arrange overflow rooms at nearby Condado hotels, a few minutes away — so your whole guest list sleeps comfortably and the celebration stays at Villa Azure."}},
+    {"@type":"Question","name":"Where exactly is the venue?","acceptedAnswer":{"@type":"Answer","text":"In Ocean Park, San Juan, Puerto Rico — directly on one of the city's most beautiful beaches, minutes from Condado and from San Juan international airport (SJU). Airport transfers are easily arranged through our concierge."}},
+    {"@type":"Question","name":"What happens if it rains?","acceptedAnswer":{"@type":"Answer","text":"Every event carries a rain plan coordinated with your planner, using the property's covered and indoor spaces — so the day moves forward beautifully either way."}}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0B1530;--navy:#1B2550;--bronze:#B8892E;--champ:#D4B678;--paper:#F9F7F3;--paper2:#EEF0F6;--muted:#5A6178;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -238,6 +254,30 @@ header .right a.cta:hover{background:var(--bronze)}
 .vendors .vlogos img{height:clamp(42px,5vw,58px);width:auto;filter:grayscale(1);opacity:.78;transition:filter .4s,opacity .4s}
 .vendors .vlogos img:hover{filter:none;opacity:1}
 .vendors .vnote{margin:38px auto 0;max-width:540px;color:var(--muted);font-size:15px}
+
+/* faq */
+.faq{background:var(--paper2);padding:min(11vh,104px) 5vw}
+.faq .inner{max-width:860px;margin:0 auto}
+.faq .fkick{display:flex;align-items:center;gap:16px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze)}
+.faq .fkick::before{content:"";width:52px;height:1px;background:var(--champ)}
+.faq h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,4.6vw,56px);line-height:1.1;margin:18px 0 14px}
+.faq h2 em{font-style:italic;color:var(--bronze)}
+.faq .fintro{color:var(--muted);max-width:560px;margin-bottom:46px}
+.faq details{border-top:1px solid rgba(11,21,48,.14)}
+.faq details:last-of-type{border-bottom:1px solid rgba(11,21,48,.14)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:26px 0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,2.6vw,27px);line-height:1.25;transition:color .3s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{flex:0 0 auto;width:30px;height:30px;border:1px solid rgba(11,21,48,.3);border-radius:50%;position:relative;transition:transform .45s var(--ease),background .3s,border-color .3s;align-self:center}
+.faq summary .ic::before,.faq summary .ic::after{content:"";position:absolute;top:50%;left:50%;background:currentColor;transform:translate(-50%,-50%)}
+.faq summary .ic::before{width:11px;height:1.5px}
+.faq summary .ic::after{width:1.5px;height:11px;transition:opacity .3s}
+.faq details[open] summary{color:var(--bronze)}
+.faq details[open] summary .ic{transform:rotate(135deg);background:var(--bronze);border-color:var(--bronze);color:#fff}
+.faq details .a{padding:0 0 30px;max-width:640px;color:var(--muted)}
+.faq details .a b{color:var(--ink);font-weight:600}
+.faq details .a a{color:var(--bronze);text-decoration:underline;text-underline-offset:3px}
+@media(hover:hover){.faq summary:hover{color:var(--bronze)}}
+@media(max-width:760px){.faq{padding:9vh 6vw}.faq summary{padding:22px 0}.faq summary .ic{width:26px;height:26px}}
 
 /* closing */
 .closing{padding:min(11vh,104px) 5vw;text-align:center;position:relative}
@@ -471,6 +511,54 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
   <p class="vnote">Catering, design, rentals and music through our curated list of preferred vendors — teams who already know every corner of the property.</p>
 </section>
 
+<section class="faq" id="faq">
+  <div class="inner">
+    <p class="fkick reveal">Good questions</p>
+    <h2 class="reveal">Everything couples &amp; planners <em>ask us first</em></h2>
+    <p class="fintro reveal">Straight answers about privacy, pricing and how an event at Villa Azure actually works.</p>
+
+    <details class="reveal">
+      <summary>Can we rent the entire hotel for a private event in San Juan?<span class="ic"></span></summary>
+      <div class="a"><p>Yes — that is the only way Privée works. Your group takes over all <b>16 en-suite designer suites</b> of Villa Azure Boutique Hotel in Ocean Park, the gates close, and no other guests share the property. One event at a time, with the beach steps from your door.</p></div>
+    </details>
+
+    <details class="reveal">
+      <summary>How much does a private event at Villa Azure cost?<span class="ic"></span></summary>
+      <div class="a"><p>Private events start at <b>$4,000</b>, in addition to lodging. Weekend celebrations (Friday–Sunday) require a full-property buyout with a <b>3-night minimum stay</b>. Your final quote depends on the date, group size and format — <a href="../questionnaire.html">check your date</a> and we will send real numbers, not ranges.</p></div>
+    </details>
+
+    <details class="reveal">
+      <summary>How many guests can stay overnight?<span class="ic"></span></summary>
+      <div class="a"><p>Up to <b>36 overnight guests</b> across 16 en-suite designer suites. For the celebration itself, your guest list can go beyond the overnight group — tell us your numbers and we will confirm what works for your format.</p></div>
+    </details>
+
+    <details class="reveal">
+      <summary>How late can the music play?<span class="ic"></span></summary>
+      <div class="a"><p>Until <b>midnight on Friday and Saturday</b>, and until 10 PM on other nights. Ocean Park is a beachfront residential neighborhood, and keeping it gracious with our neighbors is part of what keeps this venue possible.</p></div>
+    </details>
+
+    <details class="reveal">
+      <summary>Who handles catering, rentals and music?<span class="ic"></span></summary>
+      <div class="a"><p>You will work from our <b>curated list of preferred vendors</b> — caterers, event design, rentals and music teams who already know every corner of the property, including The Lounge, AKUA Events Design Group, Chef Chaymol and Music Factory.</p></div>
+    </details>
+
+    <details class="reveal">
+      <summary>Where do extra guests stay if the suites are full?<span class="ic"></span></summary>
+      <div class="a"><p>Our concierge can arrange overflow rooms at nearby <b>Condado hotels</b>, a few minutes away — so your whole guest list sleeps comfortably and the celebration stays at Villa Azure.</p></div>
+    </details>
+
+    <details class="reveal">
+      <summary>Where exactly is the venue?<span class="ic"></span></summary>
+      <div class="a"><p>In <b>Ocean Park, San Juan, Puerto Rico</b> — directly on one of the city's most beautiful beaches, minutes from Condado and from San Juan international airport (SJU). Airport transfers are easily arranged through our concierge.</p></div>
+    </details>
+
+    <details class="reveal">
+      <summary>What happens if it rains?<span class="ic"></span></summary>
+      <div class="a"><p>Every event carries a rain plan coordinated with your planner, using the property's covered and indoor spaces — so the day moves forward beautifully either way.</p></div>
+    </details>
+  </div>
+</section>
+
 <section class="closing">
   <h2 class="reveal">One hotel.<br>One event. <em>Yours</em> — <span class="out">if the date is free.</span></h2>
   <p class="reveal">One event at a time means a short calendar. Personal response within 24 hours.</p>
@@ -487,7 +575,7 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
     <p class="addr"><a href="https://villaazurehotelpr.com" target="_blank" rel="noopener" style="display:inline;color:inherit;text-decoration:underline;text-underline-offset:3px;margin:0">Villa Azure Boutique Hotel</a><br>Ocean Park, San Juan, Puerto Rico</p>
   </div>
   <div class="cols">
-    <div><h4>Occasions</h4><a href="#w">Weddings</a><a href="#c">Corporate retreats</a><a href="#r">Wellness retreats</a><a href="#cel">Celebrations</a></div>
+    <div><h4>Occasions</h4><a href="#w">Weddings</a><a href="#c">Corporate retreats</a><a href="#r">Wellness retreats</a><a href="#cel">Celebrations</a><a href="#faq">FAQ</a></div>
     <div><h4>Contact</h4><a href="mailto:info@villaazurepr.com">info@villaazurepr.com</a><a href="tel:+13057485748">Call +1 (305) 748-5748</a><a href="https://wa.me/13057485748">WhatsApp +1 (305) 748-5748</a><a href="https://www.instagram.com/privee.gracecollectionpr" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.3" cy="6.7" r="1.4" fill="currentColor" stroke="none"/></svg>@privee.gracecollectionpr</a><a href="../questionnaire.html">Check your date</a></div>
   </div>
 </footer>
