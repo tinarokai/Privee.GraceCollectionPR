@@ -309,7 +309,7 @@ footer .addr{font-size:13.5px;color:rgba(249,247,243,.6);margin-top:12px}
   <div class="stick">
     <div class="vwrap" id="vwrap">
       <img class="vposter" src="https://video.villaazurehotelpr.com/hero-privee-poster.jpg" alt="Villa Azure from above">
-      <video id="herovid" muted loop playsinline webkit-playsinline preload="metadata" disableremoteplayback disablepictureinpicture poster="https://video.villaazurehotelpr.com/hero-privee-poster.jpg"></video>
+      <video id="herovid" autoplay muted loop playsinline webkit-playsinline preload="auto" disableremoteplayback disablepictureinpicture poster="https://video.villaazurehotelpr.com/hero-privee-poster.jpg"></video>
       <div class="vscrim"></div>
       <div class="vlabel">
         <span class="caps">The property</span>
@@ -514,6 +514,9 @@ vid.src=isMobile?'https://video.villaazurehotelpr.com/hero-privee-mobile.mp4':'h
   const vio=new IntersectionObserver(es=>es.forEach(e=>{inView=e.isIntersecting;if(inView)tryPlay();else vid.pause()}),{threshold:.1});
   vio.observe(cin);
   vid.addEventListener('loadeddata',tryPlay);
+  vid.addEventListener('canplay',tryPlay);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryPlay()});
+  vid.load();tryPlay();setTimeout(tryPlay,600);
   /* iOS/Low Power/Reduce Motion: autoplay can be blocked until a user gesture */
   ['touchstart','scroll','click'].forEach(ev=>addEventListener(ev,tryPlay,{passive:true}));
 }
