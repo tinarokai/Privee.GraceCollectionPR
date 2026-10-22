@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Press section — muestras A/B/C · Privée</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B1530;--navy:#1B2550;--bronze:#B8892E;--champ:#D4B678;--paper:#F9F7F3;--paper2:#EEF0F6;--muted:#5A6178;--ease:cubic-bezier(.2,.8,.2,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:16.5px}
+a{color:inherit}
+.caps{font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.34em;font-size:10.5px;font-weight:600}
+.label{position:sticky;top:0;z-index:9;background:var(--ink);color:#fff;padding:12px 5vw;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+.label b{color:var(--champ)}
+section.demo{padding:90px 5vw;border-bottom:1px solid rgba(11,21,48,.1)}
+.serif{font-family:'Cormorant Garamond',serif}
+
+/* wordmarks — text-only, no logo files needed */
+.wm{font-family:'Cormorant Garamond',serif;font-weight:600;text-decoration:none;white-space:nowrap}
+.wm small{display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+/* ============ MUESTRA A — logotype strip ============ */
+.press-a{text-align:center}
+.press-a h3{margin-bottom:8px}
+.press-a .strip{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:40px 64px;margin-top:44px}
+.press-a .wm{font-size:27px;color:var(--ink);opacity:.62;transition:opacity .35s var(--ease),color .35s}
+.press-a .wm:hover{opacity:1;color:var(--bronze)}
+.press-a .wm.tm{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;letter-spacing:.12em;text-transform:uppercase}
+.press-a .wm.cd{font-family:'Montserrat',sans-serif;font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase}
+
+/* ============ MUESTRA B — editorial cards ============ */
+.press-b .head{max-width:640px;margin:0 auto 56px;text-align:center}
+.press-b h3{font-size:clamp(30px,3.4vw,42px);font-weight:500;line-height:1.2;margin-top:14px}
+.press-b .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px;max-width:1180px;margin:0 auto}
+.press-b .card{background:#fff;border:1px solid rgba(11,21,48,.08);padding:36px 30px 30px;display:flex;flex-direction:column;gap:18px;text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s}
+.press-b .card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(11,21,48,.1)}
+.press-b .card .q{font-family:'Cormorant Garamond',serif;font-size:21.5px;line-height:1.35;font-weight:500;font-style:italic;flex:1}
+.press-b .card .q::before{content:"“";color:var(--bronze)}
+.press-b .card .q::after{content:"”";color:var(--bronze)}
+.press-b .card .src{border-top:1px solid rgba(11,21,48,.1);padding-top:16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.press-b .card .src .o{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+.press-b .card .src .d{font-size:12.5px;color:var(--muted)}
+.press-b .card .read{font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--bronze)}
+
+/* ============ MUESTRA C — centerpiece quote ============ */
+.press-c{background:var(--ink);color:#fff;text-align:center;position:relative;overflow:hidden}
+.press-c::after{content:"”";position:absolute;top:-60px;right:4vw;font-family:'Cormorant Garamond',serif;font-size:420px;line-height:1;color:rgba(212,182,120,.08);pointer-events:none}
+.press-c .caps{color:var(--champ)}
+.press-c blockquote{max-width:840px;margin:34px auto 20px;font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.6vw,44px);font-weight:500;line-height:1.3;font-style:italic}
+.press-c blockquote em{color:var(--champ);font-style:italic}
+.press-c .attr{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.65)}
+.press-c .attr a{color:var(--champ);text-decoration:none}
+.press-c .mini{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 48px;margin-top:58px;padding-top:40px;border-top:1px solid rgba(255,255,255,.12)}
+.press-c .mini a{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.55);text-decoration:none;transition:color .3s}
+.press-c .mini a:hover{color:var(--champ)}
+</style>
+</head>
+<body>
+
+<div class="label">Press section · <b>Muestra A</b> — "Featured in" logotype strip (quietest, fits below vendors)</div>
+<section class="demo press-a">
+  <p class="caps" style="color:var(--bronze)">In the press</p>
+  <h3 class="serif" style="font-size:clamp(26px,3vw,36px);font-weight:500">A story Puerto Rico is already telling.</h3>
+  <div class="strip">
+    <a class="wm" href="https://www.elnuevodia.com/negocios/turismo/notas/villa-azure-boutique-hotel-una-apuesta-local-que-toma-forma-en-ocean-park/" target="_blank" rel="noopener">El Nuevo Día</a>
+    <a class="wm tm" href="https://www.telemundopr.com/noticias/puerto-rico/villa-azure-boutique-hotel-nuevo-concepto-de-hospedaje-100-puertorriqueno/2849316/" target="_blank" rel="noopener">Telemundo&nbsp;PR</a>
+    <a class="wm" style="font-weight:700;letter-spacing:.02em" href="https://www.elvocero.com/economia/abre-sus-puertas-villa-paradiso/article_37eb77c8-215b-4838-8a87-e133d95a8966.html" target="_blank" rel="noopener">EL&nbsp;VOCERO</a>
+    <a class="wm cd" href="https://condadodaily.com/villa-azure-second-building-ocean-park/" target="_blank" rel="noopener">Condado&nbsp;Daily</a>
+  </div>
+</section>
+
+<div class="label">Press section · <b>Muestra B</b> — editorial cards with pulled quotes (strongest for trust near CTA)</div>
+<section class="demo press-b">
+  <div class="head">
+    <p class="caps" style="color:var(--bronze)">In the press</p>
+    <h3 class="serif">The venue Puerto Rico's media can't stop writing about.</h3>
+  </div>
+  <div class="grid">
+    <a class="card" href="https://www.elvocero.com/economia/abre-sus-puertas-villa-paradiso/article_37eb77c8-215b-4838-8a87-e133d95a8966.html" target="_blank" rel="noopener">
+      <p class="q">Quisimos conservar la calidez de una casa de playa puertorriqueña y elevarla a una experiencia distintiva.</p>
+      <div class="src"><span class="o">El Vocero</span><span class="d">Oct 2026</span></div>
+      <span class="read">Read the article →</span>
+    </a>
+    <a class="card" href="https://www.elnuevodia.com/negocios/turismo/notas/villa-azure-boutique-hotel-una-apuesta-local-que-toma-forma-en-ocean-park/" target="_blank" rel="noopener">
+      <p class="q">Una apuesta local que toma forma en Ocean Park.</p>
+      <div class="src"><span class="o">El Nuevo Día</span><span class="d">2026</span></div>
+      <span class="read">Read the article →</span>
+    </a>
+    <a class="card" href="https://www.telemundopr.com/noticias/puerto-rico/villa-azure-boutique-hotel-nuevo-concepto-de-hospedaje-100-puertorriqueno/2849316/" target="_blank" rel="noopener">
+      <p class="q">Nuevo concepto de hospedaje 100% puertorriqueño.</p>
+      <div class="src"><span class="o">Telemundo PR</span><span class="d">2026</span></div>
+      <span class="read">Read the article →</span>
+    </a>
+    <a class="card" href="https://condadodaily.com/villa-azure-second-building-ocean-park/" target="_blank" rel="noopener">
+      <p class="q">Villa Azure brings the Ocean Park boutique hotel to 16 suites.</p>
+      <div class="src"><span class="o">Condado Daily</span><span class="d">Oct 2026</span></div>
+      <span class="read">Read the article →</span>
+    </a>
+  </div>
+</section>
+
+<div class="label">Press section · <b>Muestra C</b> — navy centerpiece quote (most dramatic, works as a scene break)</div>
+<section class="demo press-c">
+  <p class="caps">In the press</p>
+  <blockquote>We wanted to keep the warmth of a Puerto Rican beach house — and elevate it into <em>an experience all its own</em>.</blockquote>
+  <p class="attr">— as told to <a href="https://www.elvocero.com/economia/abre-sus-puertas-villa-paradiso/article_37eb77c8-215b-4838-8a87-e133d95a8966.html" target="_blank" rel="noopener">El Vocero</a>, October 2026</p>
+  <div class="mini">
+    <a href="https://www.elnuevodia.com/negocios/turismo/notas/villa-azure-boutique-hotel-una-apuesta-local-que-toma-forma-en-ocean-park/" target="_blank" rel="noopener">El Nuevo Día</a>
+    <a href="https://www.telemundopr.com/noticias/puerto-rico/villa-azure-boutique-hotel-nuevo-concepto-de-hospedaje-100-puertorriqueno/2849316/" target="_blank" rel="noopener">Telemundo PR</a>
+    <a href="https://www.elvocero.com/economia/abre-sus-puertas-villa-paradiso/article_37eb77c8-215b-4838-8a87-e133d95a8966.html" target="_blank" rel="noopener">El Vocero</a>
+    <a href="https://condadodaily.com/villa-azure-second-building-ocean-park/" target="_blank" rel="noopener">Condado Daily</a>
+  </div>
+</section>
+
+</body>
+</html>
