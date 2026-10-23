@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Muestras · Cuestionario por etapas</title>
+<link rel="icon" href="/favicon.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B1530;--atlantic:#1B2550;--bronze:#B8892E;--champ:#D4B678;--paper:#F4EFE6;--muted:#5A6178;--line:rgba(27,37,80,.16)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--atlantic);font-family:'Cormorant Garamond',serif;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.wrap{max-width:560px;width:100%;text-align:center}
+.kick{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--bronze)}
+h1{font-weight:500;font-size:clamp(30px,7vw,40px);line-height:1.1;margin:14px 0 8px}
+h1 em{color:var(--bronze)}
+.sub{color:var(--muted);font-size:17px;font-style:italic;margin-bottom:34px}
+.cards{display:flex;flex-direction:column;gap:14px;text-align:left}
+a.card{display:flex;align-items:center;gap:18px;border:1px solid var(--line);background:rgba(255,255,255,.55);padding:22px 22px;text-decoration:none;color:var(--atlantic);transition:border-color .3s,transform .3s}
+a.card:hover{border-color:var(--bronze);transform:translateY(-2px)}
+.badge{flex:none;width:44px;height:44px;border:1px solid var(--champ);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;color:var(--bronze)}
+.card b{display:block;font-size:21px;font-weight:500}
+.card span{display:block;font-size:14.5px;color:var(--muted);font-family:'Montserrat',sans-serif;margin-top:3px}
+.note{margin-top:30px;font-size:14px;color:var(--muted);font-family:'Montserrat',sans-serif}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kick">Muestras · Solo para ti</p>
+  <h1>Cuestionario <em>por etapas</em></h1>
+  <p class="sub">Tres maneras de llenar la forma sin abrumar. Pruébalas en tu celular.</p>
+  <div class="cards">
+    <a class="card" href="/muestras-g-8f1ecfd3e3a6/cuestionario-a">
+      <span class="badge">A</span>
+      <div><b>Paso a paso</b><span>Las 5 secciones de siempre, una a la vez, con barra de progreso y botones Atrás / Siguiente.</span></div>
+    </a>
+    <a class="card" href="/muestras-g-8f1ecfd3e3a6/cuestionario-b">
+      <span class="badge">B</span>
+      <div><b>Conversacional</b><span>9 pantallas cortas, una pregunta a la vez. Las opciones grandes avanzan solas al tocarlas.</span></div>
+    </a>
+    <a class="card" href="/muestras-g-8f1ecfd3e3a6/cuestionario-c">
+      <span class="badge">C</span>
+      <div><b>Acordeón</b><span>Todas las secciones visibles pero plegadas; se abren una a una y quedan con ✓ al completarse.</span></div>
+    </a>
+  </div>
+  <p class="note">Las tres envían al mismo Google Sheet y funcionan en inglés y español.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Muestra B · Cuestionario conversacional</title>
+<link rel="icon" href="/favicon.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500;600&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  html,body{height:100%}
+  body{background:var(--parch2);color:var(--text);display:flex;flex-direction:column}
+  .qbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:14px var(--pad);border-bottom:1px solid var(--line);background:var(--hero-bg);flex:none}
+  .qbar .lang button{background:none;border:0;cursor:pointer;font-family:var(--caps);font-size:11px;
+    letter-spacing:.18em;color:var(--muted);padding:4px 6px}
+  .qbar .lang button[aria-pressed="true"]{color:var(--bronze)}
+  .qbar .back{font-family:var(--caps);font-size:10px;font-weight:600;letter-spacing:.24em;
+    text-transform:uppercase;text-decoration:none;color:var(--muted)}
+  .qbar .back:hover{color:var(--bronze)}
+  @media (max-width:640px){
+    .qbar{padding:12px 20px;gap:10px}
+    .lockup{gap:10px}
+    .lockup img{width:38px}
+    .lockup .w1{font-size:13px;letter-spacing:.24em}
+    .lockup .w2{font-size:5.6px;letter-spacing:.24em}
+    .lockup .bar-rule{min-height:30px}
+    .qbar .back{white-space:nowrap;font-size:8.5px;letter-spacing:.16em}
+    .qbar>div{gap:12px!important}
+  }
+  .bar{height:3px;background:var(--line);flex:none}
+  .bar i{display:block;height:100%;width:10%;background:linear-gradient(90deg,var(--bronze),var(--champ));transition:width .5s cubic-bezier(.22,.8,.3,1)}
+
+  .stage{flex:1;display:flex;flex-direction:column;max-width:640px;width:100%;margin:0 auto;
+    padding:clamp(22px,4vh,44px) var(--pad) 24px}
+  .counter{font-family:var(--caps);font-size:10px;font-weight:600;letter-spacing:.3em;color:var(--bronze);margin-bottom:14px}
+  .scr{display:none;flex:1;flex-direction:column}
+  .scr.cur{display:flex;animation:fadeUp .45s cubic-bezier(.22,.8,.3,1)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.scr.cur{animation:none}}
+  .scr h2{font-family:var(--serif);font-weight:400;font-size:clamp(25px,5.6vw,34px);line-height:1.12;color:var(--atlantic);margin:0 0 6px}
+  .scr h2 em{font-style:italic;color:var(--bronze)}
+  .scr .note{color:var(--muted);font-size:13.5px;margin:0 0 22px;max-width:52ch}
+  .scr h2 + .fields,.scr h2 + .opts{margin-top:22px}
+
+  .fields{display:flex;flex-direction:column;gap:20px}
+  .fields .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:560px){.fields .row{grid-template-columns:1fr}}
+  .f{display:flex;flex-direction:column;gap:6px}
+  [hidden]{display:none!important}
+  .f label{font-family:var(--caps);font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--bronze)}
+  .f input,.f select,.f textarea{padding:10px 2px;font-family:var(--serif);font-size:19px;border-radius:0;
+    appearance:none;-webkit-appearance:none;background:transparent;border:0;
+    border-bottom:1px solid rgba(27,37,80,.32);color:var(--atlantic)}
+  .f input::placeholder,.f textarea::placeholder{font-style:italic;color:rgba(27,37,80,.34)}
+  .f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23B8892E' fill='none'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 4px center;padding-right:26px}
+  .f select option{background:#fff;color:var(--text);font-family:var(--sans);font-size:15px}
+  .f input:focus,.f select:focus,.f textarea:focus{outline:none;border-bottom-color:var(--bronze);box-shadow:0 1px 0 var(--bronze)}
+  .f textarea{border:1px solid rgba(27,37,80,.25);background:rgba(255,255,255,.55);padding:12px 14px;min-height:110px;font-size:17px}
+  .f textarea:focus{border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze)}
+  .f input[type="date"],.f input[type="time"]{min-height:42px;color-scheme:light}
+  .f .hint{font-size:12.5px;color:var(--muted);font-family:var(--sans);letter-spacing:0;text-transform:none;font-weight:400}
+  .err{color:#B3402A;font-size:12.5px;min-height:1em;font-family:var(--sans)}
+
+  /* big option rows (radio) */
+  .opts{display:flex;flex-direction:column;gap:10px}
+  .opts label{position:relative;display:flex;align-items:center;gap:14px;cursor:pointer;
+    border:1px solid rgba(27,37,80,.18);background:rgba(255,255,255,.5);padding:15px 18px;
+    font-family:var(--serif);font-size:18.5px;color:var(--atlantic);transition:border-color .25s,background .25s}
+  .opts label:hover{border-color:var(--champ)}
+  .opts input{position:absolute;opacity:0;pointer-events:none}
+  .opts .key{flex:none;width:24px;height:24px;display:flex;align-items:center;justify-content:center;
+    border:1px solid rgba(27,37,80,.3);font-family:var(--caps);font-size:10.5px;font-weight:600;color:var(--muted)}
+  .opts label.on{border-color:var(--bronze);background:rgba(184,137,46,.08)}
+  .opts label.on .key{background:var(--bronze);border-color:var(--bronze);color:#fff}
+
+  /* chips (checkbox multi) */
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chips label{position:relative;cursor:pointer;border:1px solid rgba(27,37,80,.22);background:rgba(255,255,255,.5);
+    padding:10px 16px;font-family:var(--sans);font-size:14px;color:var(--text);transition:border-color .25s,background .25s,color .25s}
+  .chips input{position:absolute;opacity:0;pointer-events:none}
+  .chips label.on{border-color:var(--bronze);background:var(--bronze);color:#fff}
+
+  .choices{display:flex;flex-wrap:wrap;gap:12px 18px;padding:4px 0}
+  .choices label{display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+    font-family:var(--sans);font-size:14.5px;color:var(--text)}
+  .choices input[type="radio"],.choices input[type="checkbox"]{appearance:none;-webkit-appearance:none;width:17px;height:17px;
+    margin:0;border:1px solid rgba(27,37,80,.35);background:#fff;cursor:pointer;flex:none}
+  .choices input[type="radio"]{border-radius:50%}
+  .choices input[type="radio"]:checked{border-color:var(--bronze);box-shadow:inset 0 0 0 3px #fff;background:var(--bronze)}
+  .choices input[type="checkbox"]:checked{background-color:var(--bronze);border-color:var(--bronze);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-width='2' d='M3 7l3 3 5-5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:center}
+
+  .notice{display:none;border:0;background:var(--atlantic);color:var(--on-dark);padding:18px 20px;margin-top:4px}
+  .notice.on{display:block}
+  .notice h4{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19px;margin:0 0 6px;color:var(--champ)}
+  .notice p{margin:0 0 12px;font-size:13.5px;color:var(--on-dark-muted)}
+  .notice .choices label{color:var(--on-dark)}
+  .notice .choices input[type="radio"]{border-color:rgba(212,182,120,.55);background:transparent}
+  .notice .choices input[type="radio"]:checked{border-color:var(--champ);background:var(--champ);box-shadow:inset 0 0 0 3px var(--atlantic)}
+  .notice .err{color:var(--err)}
+
+  .snav{margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px}
+  .snav .btn{flex:1}
+  .snav .back-btn{flex:0 0 auto;min-width:52px;padding:0 16px}
+  .snav .back-btn[data-hide]{visibility:hidden}
+  .legal{font-size:11.5px;color:var(--muted);margin-top:12px}
+  .thanks{display:none;margin:auto;padding:36px;border:1px solid var(--line);background:var(--hero-bg);text-align:center}
+  .thanks.on{display:block}
+  .thanks h3{font-size:32px;margin:0 0 10px;color:var(--atlantic);font-family:var(--serif);font-weight:400}
+  .thanks p{margin:0;color:var(--muted)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+</style>
+</head>
+<body>
+
+<div class="qbar">
+  <a class="lockup" href="/muestras-g-8f1ecfd3e3a6/">
+    <img src="/assets/vectors/logo-crest.webp" alt="Privée Events by Grace Collection" width="38" height="22"><span class="bar-rule"></span>
+    <span class="wm"><span class="w1">Privée</span><span class="w2">Events by Grace Collection</span></span>
+  </a>
+  <div style="display:flex;align-items:center;gap:22px">
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button><span>·</span><button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <a class="back" href="/muestras-g-8f1ecfd3e3a6/" data-q="back">← Back to site</a>
+  </div>
+</div>
+<div class="bar"><i id="progFill"></i></div>
+
+<main class="stage">
+  <p class="counter"><span id="counter">1 / 9</span></p>
+
+  <form id="qform" novalidate style="display:flex;flex-direction:column;flex:1">
+    <div class="hp" aria-hidden="true">
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+    </div>
+
+    <!-- 1 name -->
+    <section class="scr">
+      <h2 data-q="b1.h">First things first — <em>what's your name?</em></h2>
+      <div class="fields">
+        <div class="f"><label for="name" data-q="f.name">Full name</label><input id="name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+      </div>
+    </section>
+
+    <!-- 2 contact -->
+    <section class="scr">
+      <h2 data-q="b2.h">How do we <em>reach you?</em></h2>
+      <div class="fields">
+        <div class="f"><label for="email" data-q="f.email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+        <div class="f"><label for="phone" data-q="f.phone">Phone / WhatsApp</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1" required><span class="err" aria-live="polite"></span></div>
+      </div>
+    </section>
+
+    <!-- 3 event type -->
+    <section class="scr" data-auto="eventType">
+      <h2 data-q="b3.h">What are we <em>celebrating?</em></h2>
+      <div class="opts">
+        <label><input type="radio" name="eventType" value="wedding" required><span class="key">A</span><span data-q="o.wed">Destination wedding</span></label>
+        <label><input type="radio" name="eventType" value="corporate"><span class="key">B</span><span data-q="o.corp">Corporate / retreat</span></label>
+        <label><input type="radio" name="eventType" value="birthday"><span class="key">C</span><span data-q="o.bday">Birthday or milestone</span></label>
+        <label><input type="radio" name="eventType" value="wellness"><span class="key">D</span><span data-q="o.well">Wellness / yoga retreat</span></label>
+        <label><input type="radio" name="eventType" value="gathering"><span class="key">E</span><span data-q="o.gath">Private gathering</span></label>
+        <label><input type="radio" name="eventType" value="other"><span class="key">F</span><span data-q="o.other">Other</span></label>
+      </div>
+      <span class="err" aria-live="polite"></span>
+    </section>
+
+    <!-- 4 date -->
+    <section class="scr">
+      <h2 data-q="b4.h">When would <em>it happen?</em></h2>
+      <div class="fields">
+        <div class="row">
+          <div class="f"><label for="date" data-q="f.date">Preferred date</label><input id="date" name="date" type="date" required><span class="err" aria-live="polite"></span></div>
+          <div class="f"><label for="altdate" data-q="f.alt">Alternate date (optional)</label><input id="altdate" name="altDate" type="date"></div>
+        </div>
+        <div class="choices">
+          <label><input type="checkbox" id="flex" name="flexible" value="yes"><span data-q="f.flex">My dates are flexible</span></label>
+        </div>
+        <div class="notice" id="wknd" role="note">
+          <h4 data-q="w.t">A note about weekend dates</h4>
+          <p data-q="w.p">Weekend events (Friday–Sunday) require a full-property buyout of at least 9 bedrooms, with a 3-night minimum stay, plus an event fee. Your group enjoys the entire estate — all suites, pools, and gardens — exclusively.</p>
+          <div class="choices">
+            <label><input type="radio" name="weekendAck" value="works"><span data-q="w.yes">That works for us</span></label>
+            <label><input type="radio" name="weekendAck" value="more-info"><span data-q="w.more">Tell me more first</span></label>
+          </div>
+          <span class="err" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 times / multiple -->
+    <section class="scr">
+      <h2 data-q="b5.h">The <em>rhythm</em> of the day.</h2>
+      <div class="fields">
+        <div class="row">
+          <div class="f"><label for="start" data-q="f.start">Event start time</label><input id="start" name="startTime" type="time"></div>
+          <div class="f"><label for="end" data-q="f.end">Event end time</label><input id="end" name="endTime" type="time"><span class="hint" data-q="f.endhint">Music until midnight on Fridays &amp; Saturdays; until 10:00 PM other days.</span></div>
+        </div>
+        <div class="f">
+          <label data-q="f.multi">One event, or several across the stay?</label>
+          <div class="choices">
+            <label><input type="radio" name="multipleEvents" value="single" checked><span data-q="o.single">A single event</span></label>
+            <label><input type="radio" name="multipleEvents" value="multiple"><span data-q="o.multi">Multiple events (welcome dinner, ceremony, brunch…)</span></label>
+          </div>
+        </div>
+        <div class="f" id="multiDetail" hidden>
+          <label for="eventsDetail" data-q="f.multid">Tell us about each event</label>
+          <textarea id="eventsDetail" name="eventsDetail" maxlength="600" data-qp="p.multid" placeholder="E.g., Friday welcome dinner for 40, Saturday ceremony &amp; reception for 90, Sunday farewell brunch…"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 guests -->
+    <section class="scr">
+      <h2 data-q="b6.h">Who's <em>coming?</em></h2>
+      <div class="fields">
+        <div class="f"><label for="gevent" data-q="f.gev">Guests attending the event</label>
+          <select id="gevent" name="guestsEvent" required>
+            <option value="" data-q="o.sel">Select…</option>
+            <option value="up to 20">1–20</option>
+            <option value="21-50">21–50</option>
+            <option value="51-90">51–90</option>
+            <option value="91-150">91–150</option>
+          </select><span class="err" aria-live="polite"></span>
+        </div>
+        <div class="row">
+          <div class="f"><label for="gstay" data-q="f.gst">Guests staying overnight</label>
+            <select id="gstay" name="guestsOvernight">
+              <option value="" data-q="o.sel">Select…</option>
+              <option value="none" data-q="o.none">None — event only</option>
+              <option value="1-10">1–10</option>
+              <option value="11-20">11–20</option>
+              <option value="21-36">21–36</option>
+            </select>
+            <span class="hint" data-q="f.gsthint">Up to 36 overnight guests when all suites are available.</span>
+          </div>
+          <div class="f"><label for="nights" data-q="f.nights">Nights required</label>
+            <select id="nights" name="nights">
+              <option value="" data-q="o.sel">Select…</option>
+              <option value="event only" data-q="o.evonly">Event only, no stay</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5+">5+</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 services -->
+    <section class="scr">
+      <h2 data-q="b7.h">What should we <em>take care of?</em></h2>
+      <p class="note" data-q="s4note">For reference only — we work with a curated list of preferred vendors and will match you with the right team.</p>
+      <div class="chips">
+        <label><input type="checkbox" name="services" value="chef"><span data-q="sv.chef">Private chef / catering</span></label>
+        <label><input type="checkbox" name="services" value="bar"><span data-q="sv.bar">Bar service</span></label>
+        <label><input type="checkbox" name="services" value="music"><span data-q="sv.music">DJ / live music</span></label>
+        <label><input type="checkbox" name="services" value="florals"><span data-q="sv.flor">Florals &amp; decor</span></label>
+        <label><input type="checkbox" name="services" value="tent"><span data-q="sv.tent">Tent</span></label>
+        <label><input type="checkbox" name="services" value="av"><span data-q="sv.av">A/V equipment</span></label>
+        <label><input type="checkbox" name="services" value="photo"><span data-q="sv.photo">Photography / video</span></label>
+        <label><input type="checkbox" name="services" value="transport"><span data-q="sv.trans">Transportation</span></label>
+        <label><input type="checkbox" name="services" value="spa"><span data-q="sv.spa">Spa / yoga</span></label>
+        <label><input type="checkbox" name="services" value="planning"><span data-q="sv.plan">Full event planning</span></label>
+      </div>
+    </section>
+
+    <!-- 8 budget -->
+    <section class="scr" data-auto="budget">
+      <h2 data-q="b8.h">A budget <em>to dream within.</em></h2>
+      <div class="opts">
+        <label><input type="radio" name="budget" value="4k-10k"><span class="key">A</span><span>$4,000 – $10,000</span></label>
+        <label><input type="radio" name="budget" value="10k-25k"><span class="key">B</span><span>$10,000 – $25,000</span></label>
+        <label><input type="radio" name="budget" value="25k-50k"><span class="key">C</span><span>$25,000 – $50,000</span></label>
+        <label><input type="radio" name="budget" value="50k+"><span class="key">D</span><span>$50,000+</span></label>
+        <label><input type="radio" name="budget" value="unsure"><span class="key">E</span><span data-q="o.unsure">Not sure yet</span></label>
+      </div>
+    </section>
+
+    <!-- 9 vision + heard + send -->
+    <section class="scr">
+      <h2 data-q="b9.h">Last one — <em>paint us the picture.</em></h2>
+      <div class="fields">
+        <div class="f">
+          <label for="vision" data-q="f.vision">Tell us about your vision</label>
+          <textarea id="vision" name="vision" maxlength="1000" data-qp="p.vision" placeholder="Ceremony at sunset in the gardens, long-table dinner by the pool…"></textarea>
+        </div>
+        <div class="f"><label for="heard" data-q="f.heard">How did you hear about us?</label>
+          <select id="heard" name="heard">
+            <option value="" data-q="o.sel">Select…</option>
+            <option value="instagram">Instagram</option>
+            <option value="google" data-q="o.google">Google search</option>
+            <option value="referral" data-q="o.ref">Friend or planner referral</option>
+            <option value="flyer" data-q="o.flyer">Flyer / printed material</option>
+            <option value="stay" data-q="o.stay">I stayed at the hotel</option>
+            <option value="other" data-q="o.other">Other</option>
+          </select>
+        </div>
+        <p class="legal" data-q="f.legal">By sending this questionnaire you agree to be contacted by the Privée events team. Your details are never shared outside Grace Collection.</p>
+      </div>
+    </section>
+
+    <div class="snav">
+      <button class="btn ghost back-btn" type="button" id="backBtn" aria-label="Back" data-hide>←</button>
+      <button class="btn solid" type="button" id="nextBtn" data-q="q.next">Continue</button>
+      <button class="btn solid" type="submit" id="sendBtn" data-q="f.send" hidden>Send questionnaire</button>
+    </div>
+    <span class="err" id="formErr" aria-live="polite" style="display:block;text-align:center;margin-top:8px"></span>
+  </form>
+
+  <div class="thanks" id="thanks" tabindex="-1">
+    <h3 data-q="t.t">Received, with pleasure.</h3>
+    <p data-q="t.p">Your event director will reply personally within 24 hours, in the language you wrote to us in.</p>
+  </div>
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbzfpqEXp7GqPquYrMrAMDsIrotHZEsXyB0HpW7kqVG2Q4nZWziprwNzr-_XkaPi3Q3i8A/exec";
+  var FALLBACK = "https://formspree.io/f/xeaonrpb";
+
+  var dict = {
+    en: {},
+    es: {
+      "back":"← Volver al sitio",
+      "b1.h":"Lo primero — <em>¿cómo te llamas?</em>",
+      "b2.h":"¿Cómo <em>te contactamos?</em>",
+      "b3.h":"¿Qué vamos a <em>celebrar?</em>",
+      "b4.h":"¿Cuándo <em>sería?</em>",
+      "b5.h":"El <em>ritmo</em> del día.",
+      "b6.h":"¿Quiénes <em>vienen?</em>",
+      "b7.h":"¿De qué nos <em>encargamos?</em>",
+      "b8.h":"Un presupuesto <em>para soñar.</em>",
+      "b9.h":"Lo último — <em>píntanos el cuadro.</em>",
+      "f.name":"Nombre completo","f.email":"Email","f.phone":"Teléfono / WhatsApp","f.heard":"¿Cómo nos conociste?",
+      "f.date":"Fecha preferida","f.alt":"Fecha alterna (opcional)",
+      "f.flex":"Mis fechas son flexibles","f.start":"Hora de inicio","f.end":"Hora de cierre",
+      "f.endhint":"Música hasta medianoche viernes y sábados; hasta las 10:00 PM los demás días.",
+      "f.gsthint":"Hasta 36 huéspedes cuando todas las suites están disponibles.",
+      "s4note":"Solo como referencia — trabajamos con una lista curada de suplidores preferidos y te conectaremos con el equipo ideal.",
+      "f.multi":"¿Un solo evento o varios durante la estadía?","f.multid":"Cuéntanos de cada evento",
+      "f.gev":"Invitados al evento","f.gst":"Invitados que se hospedan","f.nights":"Noches requeridas",
+      "f.vision":"Cuéntanos tu visión","f.send":"Enviar cuestionario",
+      "f.legal":"Al enviar este cuestionario aceptas ser contactado por el equipo de Privée. Tus datos nunca se comparten fuera de Grace Collection.",
+      "o.sel":"Selecciona…","o.google":"Búsqueda en Google","o.ref":"Recomendación de amigo o planner","o.flyer":"Flyer / material impreso",
+      "o.stay":"Me hospedé en el hotel","o.other":"Otro","o.wed":"Boda destino","o.corp":"Corporativo / retiro",
+      "o.bday":"Cumpleaños o celebración","o.well":"Retiro de bienestar / yoga","o.gath":"Reunión privada",
+      "o.single":"Un solo evento",
+      "o.multi":"Varios eventos (cena de bienvenida, ceremonia, brunch…)","o.none":"Ninguno — solo el evento",
+      "o.evonly":"Solo el evento, sin estadía","o.unsure":"Aún no lo sé",
+      "w.t":"Una nota sobre fechas de fin de semana",
+      "w.p":"Los eventos de fin de semana (viernes–domingo) requieren el buyout completo de la propiedad de al menos 9 habitaciones, con un mínimo de 3 noches, más una tarifa de evento. Tu grupo disfruta toda la propiedad — suites, piscinas y jardines — en exclusiva.",
+      "w.yes":"Nos funciona","w.more":"Cuéntame más primero",
+      "sv.chef":"Chef privado / catering","sv.bar":"Servicio de barra","sv.music":"DJ / música en vivo","sv.flor":"Flores y decoración",
+      "sv.tent":"Carpa","sv.av":"Equipo A/V","sv.photo":"Fotografía / video","sv.trans":"Transportación","sv.spa":"Spa / yoga","sv.plan":"Planificación completa",
+      "p.multid":"Ej.: viernes cena de bienvenida para 40, sábado ceremonia y recepción para 90, domingo brunch de despedida…",
+      "p.vision":"Ceremonia al atardecer en los jardines, cena de mesa larga junto a la piscina…",
+      "t.t":"Recibido, con gusto.","t.p":"Tu directora de eventos responderá personalmente en 24 horas, en el idioma en que nos escribas.",
+      "e.req":"Este campo es requerido","e.email":"Verifica tu email","e.wknd":"Indícanos si el requisito de fin de semana te funciona",
+      "e.choose":"Elige una opción","e.send":"No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.",
+      "sending":"Enviando…","q.next":"Continuar"
+    }
+  };
+  var enStrings = {
+    "e.req":"This field is required","e.email":"Please check your email","e.wknd":"Please tell us if the weekend requirement works for you",
+    "e.choose":"Please choose one","e.send":"Could not send. Please try again or WhatsApp us.","sending":"Sending…"
+  };
+  var lang = (localStorage.getItem("privee-q-lang") || (navigator.language||"en").slice(0,2)) === "es" ? "es" : "en";
+  var enCache = {};
+  function t(key){ return lang === "es" ? (dict.es[key] || "") : (enStrings[key] || enCache[key] || ""); }
+
+  function applyLang(){
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-q]").forEach(function(el){
+      var k = el.getAttribute("data-q");
+      if(!(k in enCache)) enCache[k] = el.innerHTML;
+      if(lang === "es" && dict.es[k]) el.innerHTML = dict.es[k];
+      else if(lang === "en") el.innerHTML = enCache[k];
+    });
+    document.querySelectorAll("[data-qp]").forEach(function(el){
+      var k = el.getAttribute("data-qp");
+      if(!(k in enCache)) enCache[k] = el.getAttribute("placeholder") || "";
+      el.setAttribute("placeholder", lang === "es" && dict.es[k] ? dict.es[k] : enCache[k]);
+    });
+    document.querySelectorAll(".lang [data-lang]").forEach(function(b){
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
+    });
+    localStorage.setItem("privee-q-lang", lang);
+  }
+  document.querySelectorAll(".lang [data-lang]").forEach(function(b){
+    b.addEventListener("click", function(){ lang = b.getAttribute("data-lang"); applyLang(); });
+  });
+
+  /* ── Screens ── */
+  var form = document.getElementById("qform");
+  var scrs = Array.prototype.slice.call(form.querySelectorAll(".scr"));
+  var cur = 0;
+  var backBtn = document.getElementById("backBtn");
+  var nextBtn = document.getElementById("nextBtn");
+  var sendBtn = document.getElementById("sendBtn");
+  var formErr = document.getElementById("formErr");
+
+  function paint(){
+    document.getElementById("progFill").style.width = ((cur+1)/scrs.length*100) + "%";
+    document.getElementById("counter").textContent = (cur+1) + " / " + scrs.length;
+  }
+  function show(i){
+    scrs.forEach(function(s, j){ s.classList.toggle("cur", j === i); });
+    cur = i;
+    if(cur === 0) backBtn.setAttribute("data-hide",""); else backBtn.removeAttribute("data-hide");
+    var last = cur === scrs.length - 1;
+    nextBtn.hidden = last;
+    sendBtn.hidden = !last;
+    formErr.textContent = "";
+    paint();
+    window.scrollTo(0,0);
+    var first = scrs[i].querySelector("input:not([type=radio]):not([type=checkbox]),select,textarea");
+    if(first && matchMedia("(min-width:900px)").matches) first.focus({preventScroll:true});
+  }
+
+  function validScr(i){
+    var ok = true;
+    var s = scrs[i];
+    s.querySelectorAll(".err").forEach(function(e){ e.textContent = ""; });
+    s.querySelectorAll("input[required]:not([type=radio]),select[required],textarea[required]").forEach(function(el){
+      var bad = !el.value || (el.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value));
+      if(bad){
+        ok = false;
+        var err = el.closest(".f") && el.closest(".f").querySelector(".err");
+        if(err) err.textContent = el.type === "email" && el.value ? t("e.email") : t("e.req");
+      }
+    });
+    var reqRadio = s.querySelector('input[type=radio][required]');
+    if(reqRadio && !s.querySelector('input[name="'+reqRadio.name+'"]:checked')){
+      ok = false;
+      var e2 = s.querySelector(".err:last-of-type") || s.querySelector(".err");
+      if(e2) e2.textContent = t("e.choose");
+    }
+    var wknd = s.querySelector("#wknd");
+    if(wknd && wknd.classList.contains("on") && !s.querySelector('input[name="weekendAck"]:checked')){
+      ok = false;
+      wknd.querySelector(".err").textContent = t("e.wknd");
+    }
+    return ok;
+  }
+
+  backBtn.addEventListener("click", function(){ if(cur > 0) show(cur - 1); });
+  nextBtn.addEventListener("click", function(){
+    if(!validScr(cur)) return;
+    if(cur < scrs.length - 1) show(cur + 1);
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Enter" && e.target.tagName !== "TEXTAREA" && cur < scrs.length - 1){
+      e.preventDefault();
+      nextBtn.click();
+    }
+  });
+
+  /* option row highlight + auto-advance */
+  scrs.forEach(function(s){
+    s.querySelectorAll(".opts label, .chips label").forEach(function(l){
+      var inp = l.querySelector("input");
+      inp.addEventListener("change", function(){
+        if(inp.type === "radio"){
+          s.querySelectorAll('.opts input[name="'+inp.name+'"]').forEach(function(r){
+            r.closest("label").classList.toggle("on", r.checked);
+          });
+          if(s.hasAttribute("data-auto")){
+            setTimeout(function(){ if(cur === scrs.indexOf(s)) nextBtn.click(); }, 350);
+          }
+        } else {
+          l.classList.toggle("on", inp.checked);
+        }
+      });
+    });
+  });
+
+  /* ── Weekend notice ── */
+  var dateEl = document.getElementById("date");
+  var wkndEl = document.getElementById("wknd");
+  function isWeekend(v){
+    if(!v) return false;
+    var d = new Date(v + "T12:00:00");
+    var day = d.getDay();
+    return day === 5 || day === 6 || day === 0;
+  }
+  dateEl.addEventListener("change", function(){
+    wkndEl.classList.toggle("on", isWeekend(dateEl.value));
+  });
+
+  /* ── Multiple events detail ── */
+  document.querySelectorAll('input[name="multipleEvents"]').forEach(function(r){
+    r.addEventListener("change", function(){
+      document.getElementById("multiDetail").hidden = (r.value !== "multiple" || !r.checked);
+    });
+  });
+
+  /* ── Submit ── */
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    if(form.company.value) return;
+    for(var i = 0; i < scrs.length; i++){
+      if(!validScr(i)){ show(i); return; }
+    }
+
+    var fd = new FormData(form);
+    fd.delete("company");
+    fd.append("language", lang);
+    fd.append("source", "privee-questionnaire");
+    var services = [];
+    form.querySelectorAll('input[name="services"]:checked').forEach(function(c){ services.push(c.value); });
+    fd.delete("services");
+    fd.append("services", services.join(", "));
+
+    var label = sendBtn.textContent;
+    sendBtn.disabled = true;
+    sendBtn.textContent = t("sending") || "Sending…";
+
+    var url = SHEET_ENDPOINT || FALLBACK;
+    fetch(url, { method:"POST", body:fd, headers: SHEET_ENDPOINT ? {} : { "Accept":"application/json" } })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r; })
+      .then(function(){
+        form.hidden = true;
+        document.getElementById("counter").style.visibility = "hidden";
+        var th = document.getElementById("thanks");
+        th.classList.add("on");
+        th.focus();
+      })
+      .catch(function(){
+        formErr.textContent = t("e.send");
+        sendBtn.disabled = false;
+        sendBtn.textContent = label;
+      });
+  });
+
+  applyLang();
+  show(0);
+})();
+</script>
+</body>
+</html>
