@@ -37,10 +37,14 @@
   .stage{flex:1;display:flex;flex-direction:column;max-width:640px;width:100%;margin:0 auto;
     padding:clamp(22px,4vh,44px) var(--pad) 24px}
   .counter{font-family:var(--caps);font-size:10px;font-weight:600;letter-spacing:.3em;color:var(--bronze);margin-bottom:14px}
-  .scr{display:none;flex:1;flex-direction:column}
-  .scr.cur{display:flex;animation:fadeUp .45s cubic-bezier(.22,.8,.3,1)}
+  /* desktop: todas las secciones apiladas; móvil (body.step): una a la vez */
+  .scr{display:flex;flex-direction:column;margin-bottom:clamp(36px,5vw,54px)}
+  body.step .scr{display:none;flex:1;margin:0}
+  body.step .scr.cur{display:flex;animation:fadeUp .45s cubic-bezier(.22,.8,.3,1)}
+  body:not(.step) .counter{display:none}
+  body:not(.step) .bar{visibility:hidden}
   @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-  @media (prefers-reduced-motion:reduce){.scr.cur{animation:none}}
+  @media (prefers-reduced-motion:reduce){body.step .scr.cur{animation:none}}
   .scr h2{font-family:var(--serif);font-weight:400;font-size:clamp(25px,5.6vw,34px);line-height:1.12;color:var(--atlantic);margin:0 0 6px}
   .scr h2 em{font-style:italic;color:var(--bronze)}
   .scr .note{color:var(--muted);font-size:13.5px;margin:0 0 22px;max-width:52ch}
@@ -105,8 +109,10 @@
   .notice .choices input[type="radio"]:checked{border-color:var(--champ);background:var(--champ);box-shadow:inset 0 0 0 3px var(--atlantic)}
   .notice .err{color:var(--err)}
 
-  .snav{margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px}
-  .snav .btn{flex:1}
+  .snav{margin-top:6px;display:flex;align-items:center;gap:14px}
+  body.step .snav{margin-top:auto;padding-top:26px}
+  body:not(.step) .snav .back-btn,body:not(.step) #nextBtn{display:none}
+  body.step .snav .btn{flex:1}
   .snav .back-btn{flex:0 0 auto;min-width:52px;padding:0 16px}
   .snav .back-btn[data-hide]{visibility:hidden}
   .legal{font-size:11.5px;color:var(--muted);margin-top:12px}
@@ -416,8 +422,12 @@
     document.getElementById("counter").textContent = (cur+1) + " / " + scrs.length;
   }
   function show(i){
-    scrs.forEach(function(s, j){ s.classList.toggle("cur", j === i); });
     cur = i;
+    if(!document.body.classList.contains("step")){
+      scrs[i].scrollIntoView({behavior:"smooth", block:"start"});
+      return;
+    }
+    scrs.forEach(function(s, j){ s.classList.toggle("cur", j === i); });
     if(cur === 0) backBtn.setAttribute("data-hide",""); else backBtn.removeAttribute("data-hide");
     var last = cur === scrs.length - 1;
     nextBtn.hidden = last;
@@ -461,7 +471,7 @@
     if(cur < scrs.length - 1) show(cur + 1);
   });
   document.addEventListener("keydown", function(e){
-    if(e.key === "Enter" && e.target.tagName !== "TEXTAREA" && cur < scrs.length - 1){
+    if(e.key === "Enter" && e.target.tagName !== "TEXTAREA" && document.body.classList.contains("step") && cur < scrs.length - 1){
       e.preventDefault();
       nextBtn.click();
     }
@@ -476,7 +486,7 @@
           s.querySelectorAll('.opts input[name="'+inp.name+'"]').forEach(function(r){
             r.closest("label").classList.toggle("on", r.checked);
           });
-          if(s.hasAttribute("data-auto")){
+          if(s.hasAttribute("data-auto") && document.body.classList.contains("step")){
             setTimeout(function(){ if(cur === scrs.indexOf(s)) nextBtn.click(); }, 350);
           }
         } else {
@@ -544,8 +554,23 @@
       });
   });
 
+  /* etapas solo en móvil */
+  var mql = matchMedia("(max-width:760px)");
+  function setMode(){
+    var m = mql.matches;
+    document.body.classList.toggle("step", m);
+    if(m){
+      show(cur);
+    } else {
+      scrs.forEach(function(s){ s.classList.remove("cur"); });
+      nextBtn.hidden = true;
+      sendBtn.hidden = false;
+    }
+  }
+  if(mql.addEventListener) mql.addEventListener("change", setMode); else mql.addListener(setMode);
+
   applyLang();
-  show(0);
+  setMode();
 })();
 </script>
 </body>
