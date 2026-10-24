@@ -1,7 +1,7 @@
 /**
  * Privée Events — Questionnaire endpoint
  * Receives POSTs from questionnaire.html, appends a row to a Google Sheet,
- * and emails the inquiry to info@villaazurepr.com.
+ * and emails the inquiry to tina@ and lilly@villaazurepr.com.
  *
  * SETUP (one time, ~5 minutes, in the villaazurepr@gmail.com account):
  * 1. Create a Google Sheet named "Privée Questionnaire Replies".
@@ -16,7 +16,7 @@
  */
 
 var SHEET_ID = "PASTE_SHEET_ID_HERE";
-var NOTIFY_EMAIL = "info@villaazurepr.com";
+var NOTIFY_EMAIL = "tina@villaazurepr.com, lilly@villaazurepr.com";
 
 var COLUMNS = [
   "timestamp", "name", "email", "phone", "heard",
