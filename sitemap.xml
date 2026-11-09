@@ -20,4 +20,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://privee.gracecollectionpr.com/weddings"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://privee.gracecollectionpr.com/es/bodas"/>
   </url>
+  <url>
+    <loc>https://privee.gracecollectionpr.com/corporate-retreats</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://privee.gracecollectionpr.com/corporate-retreats"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://privee.gracecollectionpr.com/es/retiros-corporativos"/>
+  </url>
+  <url>
+    <loc>https://privee.gracecollectionpr.com/es/retiros-corporativos</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://privee.gracecollectionpr.com/corporate-retreats"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://privee.gracecollectionpr.com/es/retiros-corporativos"/>
+  </url>
 </urlset>
