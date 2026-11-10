@@ -32,4 +32,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://privee.gracecollectionpr.com/corporate-retreats"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://privee.gracecollectionpr.com/es/retiros-corporativos"/>
   </url>
+  <url>
+    <loc>https://privee.gracecollectionpr.com/wellness-retreats</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://privee.gracecollectionpr.com/wellness-retreats"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://privee.gracecollectionpr.com/es/retiros-de-bienestar"/>
+  </url>
+  <url>
+    <loc>https://privee.gracecollectionpr.com/es/retiros-de-bienestar</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://privee.gracecollectionpr.com/wellness-retreats"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://privee.gracecollectionpr.com/es/retiros-de-bienestar"/>
+  </url>
 </urlset>
